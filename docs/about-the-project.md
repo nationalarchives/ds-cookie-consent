@@ -1,3 +1,15 @@
+# Examples of good cookie consent sites
+- https://gds.blog.gov.uk/
+- https://www.city.ac.uk/
+- https://ico.org.uk/
+- https://www.nhs.uk/
+- https://www.mccarthyandstone.co.uk/
+
+# Research
+
+# Jira
+- https://national-archives.atlassian.net/jira/software/projects/DCC/boards/34
+
 # Solution 1
 
 ## Bottom cookie banner on large screen
