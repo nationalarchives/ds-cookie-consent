@@ -1,4 +1,6 @@
-# Examples of good cookie consent sites
+# Research
+
+## Examples of good cookie consent sites
 - https://gds.blog.gov.uk/
 - https://www.gov.uk/
 - https://www.city.ac.uk/
@@ -6,9 +8,12 @@
 - https://www.nhs.uk/
 - https://www.mccarthyandstone.co.uk/
 
-# Research
+## Miro board
+- https://miro.com/app/board/o9J_kn_YiWI=/
 
-# Jira
+# Project progress
+
+## Jira
 - https://national-archives.atlassian.net/jira/software/projects/DCC/boards/34
 
 # Solution 1
