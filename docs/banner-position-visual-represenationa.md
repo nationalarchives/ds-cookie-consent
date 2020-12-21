@@ -11,3 +11,5 @@
 ![top-cookie-banner-not-sticky](https://user-images.githubusercontent.com/5245264/102796783-ae219280-43a6-11eb-9159-5cf258540935.gif)
 
 ![mackbook-left-side-cookie-banner](https://user-images.githubusercontent.com/5245264/102801538-46bb1100-43ad-11eb-83c1-7b9c048f2be0.gif)
+
+![mobile-side-cookie-banner](https://user-images.githubusercontent.com/5245264/102802933-59cee080-43af-11eb-857b-9e37a5fbb119.gif)
