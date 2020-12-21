@@ -31,7 +31,8 @@
 ### Jira
 - https://national-archives.atlassian.net/jira/software/projects/DCC/boards/34
 
-# Solutions
+# Posible solutions
+Low level representations of the cookie banner. There are not meant to introduce any design or content but stricly layout position
 
 ### 1.1 Bottom cookie banner on large screen
 ![bottom-cookie-banner](https://user-images.githubusercontent.com/5245264/102791620-2dab6380-439f-11eb-8c69-fce6e73099df.gif)
