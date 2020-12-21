@@ -1,4 +1,4 @@
-# Research
+# Cookie banner consent
 
 ## Examples of good cookie consent sites
 - https://gds.blog.gov.uk/
