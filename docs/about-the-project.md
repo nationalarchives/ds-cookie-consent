@@ -7,11 +7,26 @@
 - https://ico.org.uk/
 - https://www.nhs.uk/
 - https://www.mccarthyandstone.co.uk/
+- https://hmrcdigital.blog.gov.uk/
 
+# User research
+## Site cookies
+- https://docs.google.com/spreadsheets/d/1jGqrWT6BklPiRumDhWqnOn9tHBmYX_rPvu655nYZwEQ/edit#gid=1626782534
 ## Miro board
 - https://miro.com/app/board/o9J_kn_YiWI=/
+## Benchamarking existing cookie banner GA dashboard
+- https://datastudio.google.com/s/o5ZUm4aMIVs
+## Video
+- https://youtu.be/U4Z47s0W1W8 (Consent Mode to allow some cookieless tracking - it is in German)
+## Reading
+- https://gds.blog.gov.uk/2012/01/12/cookies-on-the-beta/
+- https://gds.blog.gov.uk/2012/03/19/its-not-about-cookies-its-about-privacy/
+- https://alphagov.files.wordpress.com/2012/03/gds-cookies-implementer-guide.pdf
+- https://github.com/alphagov/govuk-design-system-backlog/issues/12
+- https://developer.service.hmrc.gov.uk/api-documentation/docs/help/cookies
+- https://www.metoffice.gov.uk/about-us/legal/cookies 
 
-# Project progress
+# Project items
 
 ## Jira
 - https://national-archives.atlassian.net/jira/software/projects/DCC/boards/34
