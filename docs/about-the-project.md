@@ -12,7 +12,7 @@
 # User research
 ### Site cookies
 - https://docs.google.com/spreadsheets/d/1jGqrWT6BklPiRumDhWqnOn9tHBmYX_rPvu655nYZwEQ/edit#gid=1626782534
-## Miro board
+### Miro board
 - https://miro.com/app/board/o9J_kn_YiWI=/
 ### Benchamarking existing cookie banner GA dashboard
 - https://datastudio.google.com/s/o5ZUm4aMIVs
