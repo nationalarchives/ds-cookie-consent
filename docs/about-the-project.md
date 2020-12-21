@@ -1,5 +1,6 @@
 # Examples of good cookie consent sites
 - https://gds.blog.gov.uk/
+- https://www.gov.uk/
 - https://www.city.ac.uk/
 - https://ico.org.uk/
 - https://www.nhs.uk/
