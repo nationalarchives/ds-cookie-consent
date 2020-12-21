@@ -1,5 +1,7 @@
 
 ![bottom-cookie-banner](https://user-images.githubusercontent.com/5245264/102791620-2dab6380-439f-11eb-8c69-fce6e73099df.gif)
+![mobile-bottom-cookie-banner](https://user-images.githubusercontent.com/5245264/102797405-90a0f880-43a7-11eb-8306-25008be62353.gif)
+
 
 ![top-cookie-banner](https://user-images.githubusercontent.com/5245264/102795871-50407b00-43a5-11eb-96e3-71707014809c.gif)
 
