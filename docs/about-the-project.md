@@ -53,3 +53,11 @@
 
 ### 3.2 Left side cookie banner on mobile
 ![mobile-side-cookie-banner](https://user-images.githubusercontent.com/5245264/102802933-59cee080-43af-11eb-857b-9e37a5fbb119.gif)
+
+# Prototypes
+
+### 1.1 Bottom cookie banner on large screen with content and design
+![desktop-cookie-banner-content](https://user-images.githubusercontent.com/5245264/103291787-7046ee80-49e4-11eb-80a2-6c2cfd0e5052.gif)
+
+### 1.2 Bottom cookie banner on mobile with content and design
+![mobile-cookie-banner-content-desing](https://user-images.githubusercontent.com/5245264/103294892-a12a2200-49ea-11eb-9e9a-1b3ffbe3895b.gif)
