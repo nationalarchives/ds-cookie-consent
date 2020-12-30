@@ -8,6 +8,7 @@
 - https://www.nhs.uk/
 - https://www.mccarthyandstone.co.uk/
 - https://hmrcdigital.blog.gov.uk/
+- https://www.theguardian.com
 
 # User research
 ### Site cookies
