@@ -57,7 +57,7 @@
 
 # Prototypes
 
-### 1 URL
+### 1. URL
 - https://cookie-banner-v1.netlify.app/
 
 ### 1.1 Bottom cookie banner on large screen with content and design
