@@ -1892,10 +1892,72 @@
 
     <!-- Super Cache dynamic page detected but late init not set. See the readme.txt for further details. -->
     <!-- Dynamic Super Cache -->
+    <style type="text/css">
+      .cookie_head {
+        height: 21px;
+        overflow: hidden;
+        color: #000000;
+        font-size: 16px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+        font-weight: 500;
+        font-style: normal;
+        font-family: "Roboto Mono", monospace;
+      }
+      .cookie-p {
+        margin-bottom: 7px;
+        color: #000000;
+        letter-spacing: 0px;
+        line-height: 1.4;
+        font-size: 12px;
+        font-weight: 400;
+        font-style: normal;
+        font-family: "Open Sans", sans-serif;
+      }
+      .btn_accept {
+        display: inline-block;
+        color: #fff;
+        background-color: #000000;
+        padding: 10px 20px;
+        margin-top: 10px;
+      }
+      .btn_accept:hover {
+        background-color: #fff;
+        color: #000000;
+        outline: 2px solid #000000;
+        outline-offset: -2px;
+      }
+      .btn_reject {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        display: inline-block;
+        color: #000000;
+        padding: 10px 20px;
+        outline: 2px solid #000000;
+        outline-offset: -2px;
+      }
+      .btn_reject:hover {
+        background-color: #000000;
+        color: #fff;
+        outline: 2px solid #000000;
+        outline-offset: -2px;
+      }
+      .link:visited,
+      .link:active,
+      .link {
+        color: #000000;
+      }
+
+      .link:hover {
+        color: #fff;
+        text-decoration: underline;
+        padding: 0 4px 0 4px;
+      }
+    </style>
     <div
       style="
-        padding: 5px;
-        text-align: center;
+        padding: 10px 10px 30px 10px;
         background-color: rgb(252, 228, 92);
         position: fixed;
         bottom: 0px;
@@ -1903,25 +1965,39 @@
         width: 100%;
       "
     >
-      <h3>This site uses cookies</h3>
-      <p>
-        Cookies are files saved on your phone, tablet or computer when you visit
-        a website.
-      </p>
-      <p>
-        We use cookies to store information about how you use the
-        NationalArchives .GOV.UK website, such as the pages you visit.
-      </p>
-      <p>
-        For more information, check the
-        <a href="https://google.co.uk">cookie statement</a>
-      </p>
-      <a
-        title="Close cookie policy notice"
-        href="https://www.nationalarchives.gov.uk/#"
-        id="cookieCutter"
-        >Close</a
-      >
+      <div class="container">
+        <div class="row">
+          <h3 class="cookie_head">This site uses cookies</h3>
+          <p class="cookie-p">
+            Cookies are files saved on your phone, tablet or computer when you
+            visit a website.
+          </p>
+          <p class="cookie-p">
+            We use cookies to store information about how you use the
+            NationalArchives .GOV.UK website, such as the pages you visit.
+          </p>
+          <p class="cookie-p">
+            For more information, check the
+            <a href="https://google.co.uk" class="link">cookie statement</a>
+          </p>
+          <!-- <a
+            title="Close cookie policy notice"
+            href="https://www.nationalarchives.gov.uk/#"
+            id="cookieCutter"
+            >Close</a
+          > -->
+          <a
+            href="https://www.nationalarchives.gov.uk/contact-us/email-updates/"
+            class="btn_accept"
+            >Accept all cookies</a
+          >
+          <a
+            href="https://www.nationalarchives.gov.uk/contact-us/email-updates/"
+            class="btn_reject"
+            >Reject all cookies</a
+          >
+        </div>
+      </div>
     </div>
   </body>
 </html>
