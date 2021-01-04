@@ -1922,6 +1922,10 @@
         margin-top: 10px;
         text-decoration: none;
       }
+
+      .btn_accept:visited {
+        color: white;
+      }
       .btn_accept:hover {
         background-color: #fff;
         color: #000000;
@@ -1939,6 +1943,11 @@
         outline-offset: -2px;
         text-decoration: none;
       }
+
+      .btn_reject:visited {
+        color: black;
+      }
+
       .btn_reject:hover {
         background-color: #000000;
         color: #fff;
@@ -1956,50 +1965,152 @@
         text-decoration: underline;
         padding: 0 4px 0 4px;
       }
-    </style>
-    <div
-      style="
-        padding: 10px 10px 30px 10px;
+
+      .closeCookie {
+        color: #fff;
+        float: right;
+        height: 25px;
+        color: #134571;
+        font-size: 16px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+        font-weight: 500;
+        margin: 20px 20px 0 0;
+      }
+
+      .cookieConsent {
+        padding: 0px 10px 20px 10px;
         background-color: rgb(252, 228, 92);
         position: fixed;
         bottom: 0px;
         font-size: 14px;
         width: 100%;
-      "
-    >
+      }
+      .cookieSettings {
+        position: fixed;
+        display: none;
+        bottom: 0;
+        left: -5px;
+        width: 97px;
+        height: 0;
+        border: 0 solid transparent;
+        border-bottom-width: 0px;
+        border-top-width: 97px;
+        background: transparent;
+        border-left: 97px solid rgb(252, 228, 92);
+      }
+      .cookieSettings p {
+        position: relative;
+        left: -87px;
+        top: -45px;
+      }
+    </style>
+    <div class="cookieConsent">
       <div class="container">
         <div class="row">
-          <h3 class="cookie_head">This site uses cookies</h3>
-          <p class="cookie-p">
-            Cookies are files saved on your phone, tablet or computer when you
-            visit a website.
-          </p>
-          <p class="cookie-p">
-            We use cookies to store information about how you use the
-            NationalArchives .GOV.UK website, such as the pages you visit.
-          </p>
-          <p class="cookie-p">
-            For more information, check the
-            <a href="https://google.co.uk" class="link">cookie statement</a>
-          </p>
-          <!-- <a
-            title="Close cookie policy notice"
-            href="https://www.nationalarchives.gov.uk/#"
-            id="cookieCutter"
-            >Close</a
-          > -->
-          <a
-            href="https://www.nationalarchives.gov.uk/contact-us/email-updates/"
-            class="btn_accept"
-            >Accept all cookies</a
-          >
-          <a
-            href="https://www.nationalarchives.gov.uk/contact-us/email-updates/"
-            class="btn_reject"
-            >Reject all cookies</a
-          >
+          <div style="padding: 10px">
+            <h3 style="display: inline-block" class="cookie_head">
+              This site uses cookies
+            </h3>
+            <a
+              title="Close cookie policy notice"
+              href="#"
+              id="cookieCutter"
+              class="closeCookie"
+              >Close</a
+            >
+            <p class="cookie-p">
+              Cookies are files saved on your phone, tablet or computer when you
+              visit a website.
+            </p>
+            <p class="cookie-p">
+              We use cookies to store information about how you use the
+              NationalArchives .GOV.UK website, such as the pages you visit.
+            </p>
+            <p class="cookie-p">
+              For more information, check the
+              <a
+                href="https://www.nationalarchives.gov.uk/legal/cookies.htm"
+                class="link"
+                >cookie statement</a
+              >
+            </p>
+            <a href="#" class="btn_accept">Accept all cookies</a>
+            <a href="#" class="btn_reject">Reject all cookies</a>
+          </div>
         </div>
       </div>
     </div>
+    <button class="cookieSettings">
+      <p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          width="34"
+          height="34"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,11.5 20.96,11 20.87,10.5C20.6,10 20,10 20,10H18V9C18,8 17,8 17,8H15V7C15,6 14,6 14,6H13V4C13,3 12,3 12,3M9.5,6A1.5,1.5 0 0,1 11,7.5A1.5,1.5 0 0,1 9.5,9A1.5,1.5 0 0,1 8,7.5A1.5,1.5 0 0,1 9.5,6M6.5,10A1.5,1.5 0 0,1 8,11.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 5,11.5A1.5,1.5 0 0,1 6.5,10M11.5,11A1.5,1.5 0 0,1 13,12.5A1.5,1.5 0 0,1 11.5,14A1.5,1.5 0 0,1 10,12.5A1.5,1.5 0 0,1 11.5,11M16.5,13A1.5,1.5 0 0,1 18,14.5A1.5,1.5 0 0,1 16.5,16H16.5A1.5,1.5 0 0,1 15,14.5H15A1.5,1.5 0 0,1 16.5,13M11,16A1.5,1.5 0 0,1 12.5,17.5A1.5,1.5 0 0,1 11,19A1.5,1.5 0 0,1 9.5,17.5A1.5,1.5 0 0,1 11,16Z"
+          />
+        </svg>
+      </p>
+    </button>
+    <script>
+      const closeBtn = document.querySelector(".closeCookie");
+      const queryString = window.location.search;
+      const cookieBanner = document.querySelector(".cookieConsent");
+      const cookieSettings = document.querySelector(".cookieSettings");
+      const params = new URLSearchParams(queryString);
+      const btn_accept = document.querySelector(".btn_accept");
+      const btn_reject = document.querySelector(".btn_reject");
+
+      if (params.get("close") === "yes") {
+        closeBtn.style.display = "block";
+      } else {
+        closeBtn.style.display = "none";
+      }
+
+      if (params.get("showBanner") === "yes") {
+        // somehting will go here
+      }
+
+      if (cookieSettings === null) {
+        cookieBanner.style.display = "block";
+      }
+
+      closeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        cookieBanner.style.display = "none";
+        if (params.get("settings") === "yes") {
+          cookieSettings.style.display = "block";
+        }
+      });
+
+      cookieSettings.addEventListener("click", function (e) {
+        e.preventDefault();
+        cookieSettings.style.display = "none";
+        cookieBanner.style.display = "block";
+      });
+
+      btn_accept.addEventListener("click", function (e) {
+        e.preventDefault();
+        cookieBanner.style.display = "none";
+
+        if (params.get("settings") === "yes") {
+          cookieSettings.style.display = "block";
+        }
+      });
+
+      btn_reject.addEventListener("click", function (e) {
+        e.preventDefault();
+        cookieBanner.style.display = "none";
+
+        if (params.get("settings") === "yes") {
+          cookieSettings.style.display = "block";
+        }
+      });
+    </script>
   </body>
 </html>
