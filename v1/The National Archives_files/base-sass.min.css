@@ -5320,10 +5320,10 @@ button.close {
 }
 a#cookieCutter {
   background: url("https://www.nationalarchives.gov.uk/wp-content/themes/tna-base/img/close-img.png")
-    0 2px no-repeat;
+    0 4px no-repeat;
   margin-left: 10px;
   padding-top: 1px;
-  padding-left: 22px;
+  padding-left: 24px;
   text-decoration: none;
 }
 a#cookieCutter:hover {

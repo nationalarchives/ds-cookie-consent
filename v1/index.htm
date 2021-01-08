@@ -1893,7 +1893,15 @@
     <!-- Super Cache dynamic page detected but late init not set. See the readme.txt for further details. -->
     <!-- Dynamic Super Cache -->
     <style type="text/css">
-      .cookie_head {
+      .cookieConsent {
+        padding: 0px 10px 20px 10px;
+        background-color: rgb(252, 228, 92);
+        position: fixed;
+        bottom: 0px;
+        font-size: 14px;
+        width: 100%;
+      }
+      .cookieConsent .cookie_head {
         height: 21px;
         overflow: hidden;
         color: #000000;
@@ -1904,7 +1912,7 @@
         font-style: normal;
         font-family: "Roboto Mono", monospace;
       }
-      .cookie-p {
+      .cookieConsent .cookie-p {
         margin-bottom: 7px;
         color: #000000;
         letter-spacing: 0px;
@@ -1914,7 +1922,7 @@
         font-style: normal;
         font-family: "Open Sans", sans-serif;
       }
-      .btn_accept {
+      .cookieConsent #btn_accept {
         display: inline-block;
         color: #fff;
         background-color: #000000;
@@ -1923,16 +1931,16 @@
         text-decoration: none;
       }
 
-      .btn_accept:visited {
+      .cookieConsent #btn_accept:visited {
         color: white;
       }
-      .btn_accept:hover {
+      .cookieConsent #btn_accept:hover {
         background-color: #fff;
         color: #000000;
         outline: 2px solid #000000;
         outline-offset: -2px;
       }
-      .btn_reject {
+      .cookieConsent #btn_reject {
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -1942,31 +1950,34 @@
         outline: 2px solid #000000;
         outline-offset: -2px;
         text-decoration: none;
+        background: transparent;
       }
 
-      .btn_reject:visited {
+      .cookieConsent #btn_reject:visited {
         color: black;
       }
 
-      .btn_reject:hover {
+      .cookieConsent #btn_reject:hover {
         background-color: #000000;
         color: #fff;
         outline: 2px solid #000000;
         outline-offset: -2px;
       }
-      .link:visited,
-      .link:active,
-      .link {
+
+      .cookieConsent .link:visited,
+      .cookieConsent .link:active,
+      .cookieConsent .link {
         color: #000000;
+        text-decoration: none;
       }
 
-      .link:hover {
+      .cookieConsent .link:hover {
         color: #fff;
         text-decoration: underline;
         padding: 0 4px 0 4px;
       }
 
-      .closeCookie {
+      .cookieConsent #closeCookie.button {
         color: #fff;
         float: right;
         height: 25px;
@@ -1975,18 +1986,22 @@
         letter-spacing: 0px;
         line-height: 1.2;
         font-weight: 500;
-        margin: 20px 20px 0 0;
+        background: url("https://www.nationalarchives.gov.uk/wp-content/themes/tna-base/img/close-img.png")
+          0 2px no-repeat;
+        margin-left: 10px;
+        margin-top: 20px;
+        padding-top: 1px;
+        padding-left: 24px;
+        text-decoration: none;
+        border: none;
       }
 
-      .cookieConsent {
-        padding: 0px 10px 20px 10px;
-        background-color: rgb(252, 228, 92);
-        position: fixed;
-        bottom: 0px;
-        font-size: 14px;
-        width: 100%;
+      .cookieConsent #closeCookie:hover {
+        color: #fff;
+        background-color: #134571;
       }
-      .cookieSettings {
+
+      #cookieControl {
         position: fixed;
         display: none;
         bottom: 0;
@@ -1998,8 +2013,10 @@
         border-top-width: 97px;
         background: transparent;
         border-left: 97px solid rgb(252, 228, 92);
+        padding: 0;
+        font-size: 0;
       }
-      .cookieSettings p {
+      #cookieControl svg {
         position: relative;
         left: -87px;
         top: -45px;
@@ -2015,8 +2032,8 @@
             <a
               title="Close cookie policy notice"
               href="#"
-              id="cookieCutter"
-              class="closeCookie"
+              id="closeCookie"
+              class="button"
               >Close</a
             >
             <p class="cookie-p">
@@ -2035,81 +2052,82 @@
                 >cookie statement</a
               >
             </p>
-            <a href="#" class="btn_accept">Accept all cookies</a>
-            <a href="#" class="btn_reject">Reject all cookies</a>
+            <a href="#" id="btn_accept" class="button">Accept all cookies</a>
+            <a href="#" id="btn_reject" class="button">Reject all cookies</a>
           </div>
         </div>
       </div>
     </div>
-    <button class="cookieSettings">
-      <p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          version="1.1"
-          width="34"
-          height="34"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,11.5 20.96,11 20.87,10.5C20.6,10 20,10 20,10H18V9C18,8 17,8 17,8H15V7C15,6 14,6 14,6H13V4C13,3 12,3 12,3M9.5,6A1.5,1.5 0 0,1 11,7.5A1.5,1.5 0 0,1 9.5,9A1.5,1.5 0 0,1 8,7.5A1.5,1.5 0 0,1 9.5,6M6.5,10A1.5,1.5 0 0,1 8,11.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 5,11.5A1.5,1.5 0 0,1 6.5,10M11.5,11A1.5,1.5 0 0,1 13,12.5A1.5,1.5 0 0,1 11.5,14A1.5,1.5 0 0,1 10,12.5A1.5,1.5 0 0,1 11.5,11M16.5,13A1.5,1.5 0 0,1 18,14.5A1.5,1.5 0 0,1 16.5,16H16.5A1.5,1.5 0 0,1 15,14.5H15A1.5,1.5 0 0,1 16.5,13M11,16A1.5,1.5 0 0,1 12.5,17.5A1.5,1.5 0 0,1 11,19A1.5,1.5 0 0,1 9.5,17.5A1.5,1.5 0 0,1 11,16Z"
-          />
-        </svg>
-      </p>
+    <button id="cookieControl" class="button">
+      <span class="sr-only">Cookie control icon</span>
+      <svg version="1.1" width="34" height="34" viewBox="0 0 24 24">
+        <path
+          d="M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,11.5 20.96,11 20.87,10.5C20.6,10 20,10 20,10H18V9C18,8 17,8 17,8H15V7C15,6 14,6 14,6H13V4C13,3 12,3 12,3M9.5,6A1.5,1.5 0 0,1 11,7.5A1.5,1.5 0 0,1 9.5,9A1.5,1.5 0 0,1 8,7.5A1.5,1.5 0 0,1 9.5,6M6.5,10A1.5,1.5 0 0,1 8,11.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 5,11.5A1.5,1.5 0 0,1 6.5,10M11.5,11A1.5,1.5 0 0,1 13,12.5A1.5,1.5 0 0,1 11.5,14A1.5,1.5 0 0,1 10,12.5A1.5,1.5 0 0,1 11.5,11M16.5,13A1.5,1.5 0 0,1 18,14.5A1.5,1.5 0 0,1 16.5,16H16.5A1.5,1.5 0 0,1 15,14.5H15A1.5,1.5 0 0,1 16.5,13M11,16A1.5,1.5 0 0,1 12.5,17.5A1.5,1.5 0 0,1 11,19A1.5,1.5 0 0,1 9.5,17.5A1.5,1.5 0 0,1 11,16Z"
+        />
+      </svg>
     </button>
     <script>
-      const closeBtn = document.querySelector(".closeCookie");
       const queryString = window.location.search;
-      const cookieBanner = document.querySelector(".cookieConsent");
-      const cookieSettings = document.querySelector(".cookieSettings");
       const params = new URLSearchParams(queryString);
-      const btn_accept = document.querySelector(".btn_accept");
-      const btn_reject = document.querySelector(".btn_reject");
+      const closeBtn = document.querySelector("#closeCookie");
+      const btn_accept = document.querySelector("#btn_accept");
+      const btn_reject = document.querySelector("#btn_reject");
+      const cookieBanner = document.querySelector(".cookieConsent");
+      const cookieControl = document.querySelector("#cookieControl");
+      const d = new Date();
 
-      if (params.get("close") === "yes") {
-        closeBtn.style.display = "block";
-      } else {
-        closeBtn.style.display = "none";
-      }
+      // Set cookie
+      tnaSetThisCookie = function (name, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + 864e5 * days),
+          (document.cookie =
+            name + "=true;path=/;expires=" + d.toGMTString() + ";");
+      };
 
-      if (params.get("showBanner") === "yes") {
-        // somehting will go here
-      }
+      // Check if cookie exists
+      tnaCheckForThisCookie = function (name) {
+        return -1 !== document.cookie.indexOf(name);
+      };
 
-      if (cookieSettings === null) {
+      closeBtn.style.display = "block";
+
+      if (cookieControl === null) {
         cookieBanner.style.display = "block";
       }
 
       closeBtn.addEventListener("click", function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         cookieBanner.style.display = "none";
-        if (params.get("settings") === "yes") {
-          cookieSettings.style.display = "block";
-        }
+        cookieControl.style.display = "block";
+        tnaSetThisCookie("dontShowCookieNotice", 360);
       });
 
-      cookieSettings.addEventListener("click", function (e) {
-        e.preventDefault();
-        cookieSettings.style.display = "none";
+      if (tnaCheckForThisCookie("dontShowCookieNotice")) {
+        cookieBanner.style.display = "none";
+        cookieControl.style.display = "block";
+      } else {
+        cookieBanner.style.display = "block";
+        cookieControl.style.display = "none";
+      }
+
+      cookieControl.addEventListener("click", function (e) {
+        //e.preventDefault();
+        cookieControl.style.display = "none";
         cookieBanner.style.display = "block";
       });
 
       btn_accept.addEventListener("click", function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         cookieBanner.style.display = "none";
-
-        if (params.get("settings") === "yes") {
-          cookieSettings.style.display = "block";
-        }
+        cookieControl.style.display = "block";
+        tnaSetThisCookie("dontShowCookieNotice", 360);
       });
 
       btn_reject.addEventListener("click", function (e) {
-        e.preventDefault();
+        //e.preventDefault();
         cookieBanner.style.display = "none";
-
-        if (params.get("settings") === "yes") {
-          cookieSettings.style.display = "block";
-        }
+        cookieControl.style.display = "block";
+        tnaSetThisCookie("dontShowCookieNotice", 360);
       });
     </script>
   </body>
