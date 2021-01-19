@@ -55,6 +55,9 @@
 ### 3.2 Left side cookie banner on mobile
 ![mobile-side-cookie-banner](https://user-images.githubusercontent.com/5245264/102802933-59cee080-43af-11eb-857b-9e37a5fbb119.gif)
 
+### 4.0 Cookie Settings
+![cookie-policy-page](https://user-images.githubusercontent.com/5245264/105061361-56437d80-5a71-11eb-9391-eda24cdd4a7e.gif)
+
 # Prototypes
 
 ### 1. URL
