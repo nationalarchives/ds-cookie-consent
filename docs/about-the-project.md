@@ -62,9 +62,6 @@
 
 ### 1. URL
 - https://cookie-banner-v1.netlify.app
-- https://cookie-banner-v1.netlify.app?settings=yes
-- https://cookie-banner-v1.netlify.app?close=yes
-- https://cookie-banner-v1.netlify.app?settings=yes&close=yes
 
 ### 1.1 Bottom cookie banner on large screen with content and design
 ![desktop-cookie-banner-content](https://user-images.githubusercontent.com/5245264/103291787-7046ee80-49e4-11eb-80a2-6c2cfd0e5052.gif)
