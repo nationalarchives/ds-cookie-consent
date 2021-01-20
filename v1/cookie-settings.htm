@@ -1231,7 +1231,7 @@
               class="post-24 page type-page status-publish hentry"
             >
               <div class="entry-header">
-                <h1>Cookies</h1>
+                <h1>Cookies settings</h1>
               </div>
               <div class="entry-content clearfix">
                 <p>
@@ -2181,6 +2181,7 @@
         font-style: normal;
         font-family: "Open Sans", sans-serif;
       }
+
       .cookieConsent #btn_accept {
         display: inline-block;
         color: #fff;
@@ -2223,17 +2224,34 @@
         outline-offset: -2px;
       }
 
+      .cookieConsent #btn_preferences {
+        background: none;
+        color: #000000;
+        border: none;
+        padding: 10px 0 10px 0;
+        margin-left: 5px;
+      }
+
+      .cookieConsent #btn_preferences:hover {
+        outline: 0;
+        position: relative;
+        background-color: #134571;
+        outline: 1px solid #134571;
+        color: #fff;
+        text-decoration: underline;
+      }
+
       .cookieConsent .link:visited,
       .cookieConsent .link:active,
       .cookieConsent .link {
-        color: #000000;
+        color: #134571;
         text-decoration: none;
+        padding: 0 4px 0 4px;
       }
 
       .cookieConsent .link:hover {
         color: #fff;
         text-decoration: underline;
-        padding: 0 4px 0 4px;
       }
 
       .cookieConsent #closeCookie.button {
@@ -2280,6 +2298,13 @@
         left: -87px;
         top: -45px;
       }
+      @media (max-width: 520px) {
+        .cookieConsent #btn_preferences {
+          display: block;
+          margin: 5px 0 0 0;
+          width: 97%;
+        }
+      }
     </style>
     <div class="cookieConsent">
       <div class="container">
@@ -2300,19 +2325,24 @@
               visit a website.
             </p>
             <p class="cookie-p">
-              We use cookies to store information about how you use the
-              NationalArchives .GOV.UK website, such as the pages you visit.
+              We use cookies to store information about how you use The National
+              Archives website, and to help us make improvements to our website
+              and services.
             </p>
             <p class="cookie-p">
-              For more information, check the
+              For more information, or to set preferences, check the
               <a
                 href="https://www.nationalarchives.gov.uk/legal/cookies.htm"
                 class="link"
                 >cookie statement</a
               >
+              page
             </p>
-            <a href="#" id="btn_accept" class="button">Accept all cookies</a>
-            <a href="#" id="btn_reject" class="button">Reject all cookies</a>
+            <a href="#" id="btn_accept" class="button">Accept cookies</a>
+            <a href="#" id="btn_reject" class="button">Reject cookies</a>
+            <a href="/cookie-settings.htm" id="btn_preferences" class="button"
+              >Set cookie preferences</a
+            >
           </div>
         </div>
       </div>
