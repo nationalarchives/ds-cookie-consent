@@ -55,13 +55,13 @@
 ### 3.2 Left side cookie banner on mobile
 ![mobile-side-cookie-banner](https://user-images.githubusercontent.com/5245264/102802933-59cee080-43af-11eb-857b-9e37a5fbb119.gif)
 
+### 4.0 Cookie Settings
+![cookie-policy-page](https://user-images.githubusercontent.com/5245264/105061361-56437d80-5a71-11eb-9391-eda24cdd4a7e.gif)
+
 # Prototypes
 
 ### 1. URL
 - https://cookie-banner-v1.netlify.app
-- https://cookie-banner-v1.netlify.app?settings=yes
-- https://cookie-banner-v1.netlify.app?close=yes
-- https://cookie-banner-v1.netlify.app?settings=yes&close=yes
 
 ### 1.1 Bottom cookie banner on large screen with content and design
 ![desktop-cookie-banner-content](https://user-images.githubusercontent.com/5245264/103291787-7046ee80-49e4-11eb-80a2-6c2cfd0e5052.gif)
