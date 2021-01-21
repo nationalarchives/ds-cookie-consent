@@ -56,7 +56,15 @@
 ![mobile-side-cookie-banner](https://user-images.githubusercontent.com/5245264/102802933-59cee080-43af-11eb-857b-9e37a5fbb119.gif)
 
 ### 4.0 Cookie Settings
+#### V1
+Screenshot
 ![cookie-policy-page](https://user-images.githubusercontent.com/5245264/105061361-56437d80-5a71-11eb-9391-eda24cdd4a7e.gif)
+Lo-Fi prototype url
+- https://framer.com/share/TNA-Cookie-Consent--qyEHGvhkPkTeDcr4KBIb/PuBWNzw6o
+
+#### v2
+Lo-Fi prototype url
+- https://framer.com/share/TNA-Cookie-Consent--qyEHGvhkPkTeDcr4KBIb/lwvyRkn6F
 
 # Prototypes
 
