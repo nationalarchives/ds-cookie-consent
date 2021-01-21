@@ -62,7 +62,9 @@ Screenshot
 Lo-Fi prototype url
 - https://framer.com/share/TNA-Cookie-Consent--qyEHGvhkPkTeDcr4KBIb/PuBWNzw6o
 
-#### v2
+#### v2 (Option 1)
+Screenshot
+![055918b466192869cd545a9941fa9c35](https://user-images.githubusercontent.com/5245264/105394035-fd144f00-5c14-11eb-9fc3-e5322b7fdb56.gif)
 Lo-Fi prototype url
 - https://framer.com/share/TNA-Cookie-Consent--qyEHGvhkPkTeDcr4KBIb/lwvyRkn6F
 
