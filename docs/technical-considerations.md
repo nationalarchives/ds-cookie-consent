@@ -12,7 +12,7 @@ Adopt the approach used on the broader GOV.UK domain. That would be along the li
 ## The banner
 
 * The cookie banner HTML will be included in HTTP responses based on the presence of a cookie named `cookie_preferences_set` in the HTTP request. If this cookie is set the value will be `true`. If the cookie is not set or if the value is anything other than `true`, the banner will be included. 
-* The basic banner will have a link to the cookie setting page, but will be progressively enhanced to include an 'Accept all cookies' button that, when clicked, will set permissions within the `cookies_policy` and the `cookie_preferences_set` cookie via JavaScript. 
+* The basic banner will have a link to the cookie setting page, but will be progressively enhanced to include an 'Accept all cookies' button that, when clicked, will set permissions within the `cookies_policy` and the `cookie_preferences_set` cookies via JavaScript. 
 
 ## Setting cookies
 
