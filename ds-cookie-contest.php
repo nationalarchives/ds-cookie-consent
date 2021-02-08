@@ -1,3 +1,4 @@
+<?php
 /**
 * Plugin Name: TNA Cookie Consent
 * Plugin URI: https://nationalarchives.gov.uk
@@ -26,3 +27,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with TNA Cookie Consent. If not, see {URI to Plugin License}.
 */
+
+require_once plugin_dir_path(__FILE__) . 'includes/functions.php';
+
+$cookie_consent_plugin_options =  new Ds_Cookie_Consent_Fields_Admin_Options();
+?>
