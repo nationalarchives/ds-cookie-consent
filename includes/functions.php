@@ -57,7 +57,7 @@ class Ds_Cookie_Consent_Fields_Admin_Options {
                 'options' => false,
                 'placeholder' => '',
                 'helper' => '',
-                'supplemental' => 'Description section',
+                'supplemental' => 'Section description',
                 'default' => ''
             ),
             array(
@@ -68,7 +68,7 @@ class Ds_Cookie_Consent_Fields_Admin_Options {
                 'options' => false,
                 'placeholder' => '',
                 'helper' => '',
-                'supplemental' => 'Description section',
+                'supplemental' => 'Section description',
                 'default' => ''
             ),
             array(
@@ -79,7 +79,7 @@ class Ds_Cookie_Consent_Fields_Admin_Options {
                 'options' => false,
                 'placeholder' => '',
                 'helper' => '',
-                'supplemental' => 'Description section',
+                'supplemental' => 'Section description',
                 'default' => ''
             )        );
         foreach( $fields as $field ){
