@@ -4,6 +4,7 @@ The purpose of this document is to outline a suggested technical approach for Co
 
 * Delivering a robust, maintainable and inclusive mechanism for ensuring compliance
 * Reflecting the GDS Service Manual
+* Being as simple and straightforward to implement as possible
 
 ## Proposed approach
 
