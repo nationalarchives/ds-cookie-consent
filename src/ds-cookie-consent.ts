@@ -93,116 +93,150 @@ const dsCookieConsentBanner: ICookieConsent = ((): any => {
   };
 })();
 
+const getBannerElement = document.querySelector("#ds-cookie-consent-banner");
+const getCookieForm = document.querySelector("#ds-cookie-consent-form");
+
 // Banner implementation
 (function () {
-  const getBannerElement = document.querySelector("#ds-cookie-consent-banner");
+  document.addEventListener("DOMContentLoaded", () => {
+    const oldCookieNotice = document.querySelector(".cookieNotice");
 
-  // Check if cookie banner exists
-  if (getBannerElement) {
-    // Create Accept Optional Cookies
-    dsCookieConsentBanner.createButton(
-      data.buttonAccept.text,
-      data.buttonAccept.url,
-      data.buttonAccept.id,
-      data.buttonAccept.class
-    );
-
-    // Create Reject Optional Cookies
-    dsCookieConsentBanner.createButton(
-      data.buttonReject.text,
-      data.buttonReject.url,
-      data.buttonReject.id,
-      data.buttonReject.class
-    );
-
-    // Select the buttons
-    // !important - Do not move these above the DOM implementation
-    const btnAccept = document.querySelector("#accept_optional_cookies");
-    const btnReject = document.querySelector("#reject_optional_cookies");
-    const btnPreference = document.querySelector("#btn_preferences");
-    const bannerParagraph = document.querySelector(".cookie-p");
-
-    // Check if the button Accept Optional Cookies exists
-    if (btnAccept) {
-      // Listen for a click
-      btnAccept.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        // Create dontShowCookieNotice cookie
-        dsCookieConsentBanner.setCookie("dontShowCookieNotice", "true", {
-          "max-age": 3600,
-        });
-
-        // Create/Update cookies_policy cookie
-        dsCookieConsentBanner.setCookie(
-          "cookies_policy",
-          '{"usage":true,"settings":true,"essential":true}',
-          {
-            "max-age": 3600,
-          }
-        );
-
-        dsCookieConsentBanner.createButton(
-          data.hideThisMessage.text,
-          data.hideThisMessage.url,
-          data.hideThisMessage.id,
-          data.hideThisMessage.class
-        );
-
-        if (btnAccept) {
-          btnAccept.remove();
-        }
-
-        if (btnReject) {
-          btnReject.remove();
-        }
-
-        if (btnPreference) {
-          btnPreference.remove();
-        }
-
-        if (bannerParagraph) {
-          bannerParagraph.innerHTML =
-            "You have accepted additional cookies. You can <a href='#'>change your cookie settings</a> at any time.";
-        }
-
-        //bannerParagraph.innerText = "ads asd";
-      });
+    // Hide the old yellow Cookie banner for the MVP
+    if (oldCookieNotice) {
+      oldCookieNotice.remove();
     }
 
-    // Check if the button Reject Optional Cookies exists
-    if (btnReject) {
-      // Listen for a click
-      btnReject.addEventListener("click", (e) => {
-        e.preventDefault();
+    // Check if cookie banner exists
+    if (getBannerElement) {
+      // Create Accept Optional Cookies
+      dsCookieConsentBanner.createButton(
+        data.buttonAccept.text,
+        data.buttonAccept.url,
+        data.buttonAccept.id,
+        data.buttonAccept.class
+      );
 
-        // Create dontShowCookieNotice cookie
-        dsCookieConsentBanner.setCookie("dontShowCookieNotice", "true", {
-          "max-age": 3600,
-        });
+      // Create Reject Optional Cookies
+      dsCookieConsentBanner.createButton(
+        data.buttonReject.text,
+        data.buttonReject.url,
+        data.buttonReject.id,
+        data.buttonReject.class
+      );
 
-        // Create/Update cookies_policy cookie
-        dsCookieConsentBanner.setCookie(
-          "cookies_policy",
-          '{"usage":false,"settings":false,"essential":true}',
-          {
+      // Select the buttons
+      // !important - Do not move these above the DOM implementation
+      const btnAccept = document.querySelector("#accept_optional_cookies");
+      const btnReject = document.querySelector("#reject_optional_cookies");
+      const btnPreference = document.querySelector("#btn_preferences");
+      const bannerParagraph = document.querySelector(".cookie-p");
+      const cookieHead = document.querySelector(".cookie_head");
+
+      // Check if the button Accept Optional Cookies exists
+      if (btnAccept) {
+        // Binding to document (event delegation)
+        btnAccept.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // Create dontShowCookieNotice cookie
+          dsCookieConsentBanner.setCookie("dontShowCookieNotice", "true", {
             "max-age": 3600,
-          }
-        );
+          });
 
-        // Hide the banner after Reject btn was clicked
-        if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
-          if (getBannerElement) {
-            getBannerElement.remove();
+          // Create/Update cookies_policy cookie
+          dsCookieConsentBanner.setCookie(
+            "cookies_policy",
+            '{"usage":true,"settings":true,"essential":true}',
+            {
+              "max-age": 3600,
+            }
+          );
+
+          dsCookieConsentBanner.createButton(
+            data.hideThisMessage.text,
+            data.hideThisMessage.url,
+            data.hideThisMessage.id,
+            data.hideThisMessage.class
+          );
+
+          if (btnAccept) {
+            btnAccept.remove();
           }
-        }
-      });
+
+          if (btnReject) {
+            btnReject.remove();
+          }
+
+          if (btnPreference) {
+            btnPreference.remove();
+          }
+
+          if (cookieHead) {
+            cookieHead.remove();
+          }
+
+          if (bannerParagraph) {
+            bannerParagraph.innerHTML =
+              "You have accepted additional cookies. You can <a href='/latin/legal/cookies'>change your cookie settings</a> at any time.";
+          }
+
+          const hideThisMessage = document.querySelector("#hide_this_message");
+
+          if (hideThisMessage) {
+            hideThisMessage.addEventListener("click", (e) => {
+              e.preventDefault();
+              // Hide the banner after Reject btn was clicked
+              if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
+                if (getBannerElement) {
+                  getBannerElement.remove();
+                }
+              }
+            });
+          }
+        });
+      }
+
+      // Check if the button Reject Optional Cookies exists
+      if (btnReject) {
+        // Binding to document (event delegation)
+        btnReject.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // Create dontShowCookieNotice cookie
+          dsCookieConsentBanner.setCookie("dontShowCookieNotice", "true", {
+            "max-age": 3600,
+          });
+
+          // Create/Update cookies_policy cookie
+          dsCookieConsentBanner.setCookie(
+            "cookies_policy",
+            '{"usage":false,"settings":false,"essential":true}',
+            {
+              "max-age": 3600,
+            }
+          );
+
+          // Hide the banner after Reject btn was clicked
+          if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
+            if (getBannerElement) {
+              getBannerElement.remove();
+            }
+          }
+        });
+      }
     }
-  }
+  });
 
   // If the cookie dontShowCookieNotice exists
   // Hide the banner if visible
   if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
+
+  // Hide the banner from the cookie settings page
+  if (getCookieForm) {
     if (getBannerElement) {
       getBannerElement.remove();
     }

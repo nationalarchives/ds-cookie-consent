@@ -3,7 +3,7 @@
 // Add custom stylesheet
 function wpse_load_plugin_scripts() {
     $plugin_url = plugin_dir_url( __FILE__ );
-    wp_enqueue_style( 'ds-cookie-consent-css', $plugin_url . 'css/ds-cookie-consent.css');
+    wp_enqueue_style( 'ds-cookie-consent-css', $plugin_url . 'lib/ds-cookie-consent.css');
     wp_enqueue_script( 'ds-cookie-consent-js', $plugin_url . 'lib/ds-cookie-consent.js', array(), '1.0.0', true );
 
 }
@@ -177,8 +177,9 @@ function shortcode_settings_page( $atts ) {
         $reject_settings_option = "";
     }
 
-    $output  = '<form method="post" action="/latin/legal/cookie-policy" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
+    $output = '<form method="post" action="/latin/legal/cookies" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
     $output .= '<fieldset>';
+    $output .= (!empty($_POST)) ? cookie_success_message() : '';
     $output .= '<legend class="sr-only">Cookie settings</legend>';
     $output .= '<h2>Cookies that measure website use</h2>';
     $output .= get_option('our_first_field');
@@ -205,7 +206,7 @@ function shortcode_settings_page( $atts ) {
     $output .= '<div class="tna-form__row"><input type="submit" name="submit" id="form_submit" value="Save changes" class="tna-button"></div>';
     $output .= '</fieldset>';
     $output .= '</form>';
-    
+
     return $output;
 }
 
@@ -255,6 +256,10 @@ function decode_cookie($cookie_name) {
         return json_decode( $clean_cookie );
     }
     return false;
+}
+
+function cookie_success_message() {
+    return '<div class="emphasis-block success-message" role="alert"><p class="h3">Your cookie settings were saved</p><p>Thank you!</p></div>';
 }
 
 add_action( 'wp_enqueue_scripts', 'wpse_load_plugin_scripts' );

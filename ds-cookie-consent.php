@@ -92,9 +92,9 @@ function cookie_banner() {
         <div class="row">
             <h3 class="cookie_head">This website uses cookies</h3>
             <p class="cookie-p">
-                We place some essential cookies on your device to make this website work. We also use optional analytics cookies to understand how you use The National Archives website, and to help us make improvements to our services.
+                We place some essential cookies on your device to make this website work.<br > We also use optional analytics cookies to understand how you use The National Archives website, and to help us make improvements to our services.
             </p>
-            <a href="/latin/legal/cookie-policy" id="btn_preferences" class="button">View cookies</a>
+            <a href="/latin/legal/cookies" id="btn_preferences" class="button">View cookies</a>
         </div>
     </div>
     </div>');
@@ -103,5 +103,6 @@ function cookie_banner() {
 if (!isset($_COOKIE['dontShowCookieNotice'])) {
     add_action('wp_footer', 'cookie_banner');
 }
+
 
 ?>
