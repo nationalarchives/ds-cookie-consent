@@ -1,5 +1,18 @@
 <?php
 
+// Add custom stylesheet
+function wpse_load_plugin_scripts() {
+    $plugin_url = plugin_dir_url( __FILE__ );
+    wp_enqueue_style( 'ds-cookie-consent-css', $plugin_url . 'css/ds-cookie-consent.css');
+    wp_enqueue_script( 'ds-cookie-consent-js', $plugin_url . 'lib/ds-cookie-consent.js', array(), '1.0.0', true );
+
+}
+
+// Add custom javascript
+function wpse_load_plugin_js() {
+    $plugin_url = plugin_dir_url( __FILE__ );
+}
+
 class Ds_Cookie_Consent_Fields_Admin_Options {
     public function __construct() {
         // Hook into the admin menu
@@ -28,7 +41,6 @@ class Ds_Cookie_Consent_Fields_Admin_Options {
                 break;
         }
     }
-        
                 
     public function setup_sections() {
         add_settings_section( 'content_section', 'Cookie Options page', array( $this, 'section_callback' ), 'ds_cookie_consent_fields' );
@@ -126,37 +138,125 @@ class Ds_Cookie_Consent_Fields_Admin_Options {
 }
 
 
+
 function shortcode_settings_page( $atts ) {
     $a = shortcode_atts( array(
-    'measure' => true
+    'usage' => 'show',
+    'settings' => 'hide',
+    'necessary' => 'show',
     ), $atts );
-    $output = '<h2>Cookies that measure website use</h2>';
+    
+    $accept_usage_option = "";
+    $accept_settings_option = "";
+    $reject_usage_option = "";
+    $reject_settings_option = "";
+
+    $cookies_policy_to_obj = decode_cookie('cookies_policy');
+
+    if ($cookies_policy_to_obj->usage === true) {
+        $accept_usage_option = "checked='checked'";
+    } else {
+        $accept_usage_option = "";
+    }
+
+    if ($cookies_policy_to_obj->usage === false) {
+        $reject_usage_option = "checked='checked'";
+    } else {
+        $reject_usage_option = "";
+    }
+
+    if ($cookies_policy_to_obj->settings === true) {
+        $accept_settings_option = "checked='checked'";
+    } else {
+        $accept_settings_option = "";
+    }
+
+    if ($cookies_policy_to_obj->settings === false) {
+        $reject_settings_option = "checked='checked'";
+    } else {
+        $reject_settings_option = "";
+    }
+
+    $output  = '<form method="post" action="/latin/legal/cookie-policy" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
+    $output .= '<fieldset>';
+    $output .= '<legend class="sr-only">Cookie settings</legend>';
+    $output .= '<h2>Cookies that measure website use</h2>';
     $output .= get_option('our_first_field');
-    $output .= '<h2>Cookies that remember your settings</h2>';
-    $output .= get_option('our_second_field');
+    $output .= '<br><br>';
+    $output .= '<input type="radio" id="measure_website_use" name="measure-website-use" value="yes" ' . $accept_usage_option . '>';
+    $output .= '<label for="measure_website_use">Use cookies that measure my website use</label><br>';
+    $output .= '<input type="radio" id="donot_measure_website_use" name="measure-website-use" value="no" ' . $reject_usage_option . '>';
+    $output .= '<label for="donot_measure_website_use">Do not use cookies that measure my website use</label><br>';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ? '<h2>Cookies that remember your settings</h2>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ? get_option('our_second_field') : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<br><br>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<input type="radio" id="remember_your_settings" name="remember-your-settings" value="yes" ' . $accept_settings_option . '>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="remember_your_settings">Use cookies that remember my settings on the site</label><br>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<input type="radio" id="donot_remember_your_settings" name="remember-your-settings" value="no" ' . $reject_settings_option . '>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="donot_remember_your_settings">Do not use cookies that remember my settings on the site</label><br>' : '';
     $output .= '<h2>Strictly necessary cookies</h2>';
     $output .= get_option('our_third_field');
+    $output .= '<br><br>';
+    $output .= '<input type="radio" id="strictly_necessary" name="strictly-necessary" value="yes" checked disabled>';
+    $output .= '<label for="strictly_necessary">Use cookies that are essential to make the site work</label><br>';
+    $output .= '<input type="radio" id="donot_strictly_necessary" name="strictly-necessary" value="no" disabled>';
+    $output .= '<label for="donot_strictly_necessary">Do not use cookies that are essential to make the site work</label><br>';
+    $output .= '<br><br>';
+    $output .= '<div class="tna-form__row"><input type="submit" name="submit" id="form_submit" value="Save changes" class="tna-button"></div>';
+    $output .= '</fieldset>';
+    $output .= '</form>';
     
     return $output;
 }
 
-function ds_cookie_consent_activation() {
-    var_dump("Activate");
+class Manage_Acceptable_Group_Cookie_List implements JsonSerializable {
+    protected $usage;
+    protected $settings;
+    protected $essential;
+
+    public function __construct(array $cookie_options) 
+    {
+        $this->usage        = $cookie_options['usage'];
+        $this->settings     = $cookie_options['settings'];
+        $this->essential    = $cookie_options['essential'];
+    }
+    
+    public function getEssential() 
+    {
+        return $this->essential;
+    }
+    
+    public function getSettings()
+    {
+        return $this->settings;
+    }
+
+    public function getUsage()
+    {
+        return $this->usage;
+    }
+
+    public function jsonSerialize()
+    {
+        return 
+        [
+            'usage'       => $this->getUsage(),
+            'settings'    => $this->getSettings(),
+            'essential'   => $this->getEssential()
+        ];
+    }
 }
 
-function ds_cookie_consent_deactivation() {
-    var_dump("Deactivate");
+function decode_cookie($cookie_name) {
+
+    if(isset($_COOKIE[$cookie_name])) {
+        $cookie = $_COOKIE[$cookie_name];
+        $clean_cookie = preg_replace('/\\\\/', '', $cookie);
+        return json_decode( $clean_cookie );
+    }
+    return false;
 }
 
-function ds_cookie_consent_uninstall() {
-    var_dump("Uninstall");
-}
- 
-
-register_activation_hook( __FILE__, 'ds_cookie_consent_activation' );
-register_deactivation_hook( __FILE__, 'ds_cookie_consent_deactivation' );
-register_uninstall_hook( __FILE__, 'ds_cookie_consent_uninstall' );
-
-
+add_action( 'wp_enqueue_scripts', 'wpse_load_plugin_scripts' );
 add_shortcode( 'ds-cookie-consent-settings', 'shortcode_settings_page' );
 ?>
