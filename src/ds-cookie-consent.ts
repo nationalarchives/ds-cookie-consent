@@ -1,4 +1,8 @@
+// Typed data
 interface ICookieConsent {
+  globalCookieName?: string;
+  bannerWrapper?: string;
+  innerElemWrapper?: string;
   createButton(text: string, url: string, id: string, className: string): void;
   setCookie(
     name: string,
@@ -8,7 +12,7 @@ interface ICookieConsent {
   checkCookie(name: string): boolean;
 }
 
-const data = {
+const Data = {
   buttonAccept: {
     text: "Accept optional cookies",
     url: "#",
@@ -27,10 +31,36 @@ const data = {
     id: "hide_this_message",
     class: "button",
   },
+  buttonPreferences: {
+    id: "#btn_preferences",
+  },
+  bannerParagraph: {
+    id: ".cookie-p",
+  },
+  bannerHeadline: {
+    id: ".cookie_head",
+  },
+  bannerWrapper: {
+    id: "#ds-cookie-consent-banner",
+  },
+  cookies: {
+    cookieOne: "dontShowCookieNotice",
+    cookieTwo: "cookies_policy",
+  },
+  formWrapper: {
+    id: "#ds-cookie-consent-form",
+  },
+  messageAfterInteraction: {
+    text:
+      "You have accepted additional cookies. You can <a href='/latin/legal/cookies'>change your cookie settings</a> at any time.",
+  },
+  oldCookieBannerWrapper: {
+    class: ".cookieNotice",
+  },
 };
 
 // Business logic
-const dsCookieConsentBanner: ICookieConsent = ((): any => {
+const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
   // Delete cookie
   const deleteCookie = (name) => {
     setCookie(name, "", {
@@ -70,19 +100,18 @@ const dsCookieConsentBanner: ICookieConsent = ((): any => {
 
   // Create buttons inside the banner
   const createButton = (text, url, id, className) => {
-    const getBannerElement = document.querySelector(
-      "#ds-cookie-consent-banner"
-    );
-    const getInnerElem = getBannerElement.querySelector("#btn_preferences");
+    const getInnerElem = document.querySelector(Data.buttonPreferences.id);
     const createButtonLink = document.createElement("a");
     const linkText = document.createTextNode(text);
-    const parentElement = getInnerElem.parentNode;
 
-    createButtonLink.appendChild(linkText);
-    createButtonLink.href = url;
-    createButtonLink.className = className;
-    createButtonLink.id = id;
-    parentElement.insertBefore(createButtonLink, getInnerElem);
+    if (getInnerElem) {
+      const parentElement = getInnerElem.parentNode;
+      createButtonLink.appendChild(linkText);
+      createButtonLink.href = url;
+      createButtonLink.className = className;
+      createButtonLink.id = id;
+      parentElement.insertBefore(createButtonLink, getInnerElem);
+    }
   };
 
   // Revealing public API
@@ -93,13 +122,15 @@ const dsCookieConsentBanner: ICookieConsent = ((): any => {
   };
 })();
 
-const getBannerElement = document.querySelector("#ds-cookie-consent-banner");
-const getCookieForm = document.querySelector("#ds-cookie-consent-form");
+const getBannerElement = document.querySelector(Data.bannerWrapper.id);
+const getCookieForm = document.querySelector(Data.formWrapper.id);
 
-// Banner implementation
+// Banner DOM implementation
 (function () {
   document.addEventListener("DOMContentLoaded", () => {
-    const oldCookieNotice = document.querySelector(".cookieNotice");
+    const oldCookieNotice = document.querySelector(
+      Data.oldCookieBannerWrapper.class
+    );
 
     // Hide the old yellow Cookie banner for the MVP
     if (oldCookieNotice) {
@@ -109,28 +140,28 @@ const getCookieForm = document.querySelector("#ds-cookie-consent-form");
     // Check if cookie banner exists
     if (getBannerElement) {
       // Create Accept Optional Cookies
-      dsCookieConsentBanner.createButton(
-        data.buttonAccept.text,
-        data.buttonAccept.url,
-        data.buttonAccept.id,
-        data.buttonAccept.class
+      dsCookieConsentBannerAPI.createButton(
+        Data.buttonAccept.text,
+        Data.buttonAccept.url,
+        Data.buttonAccept.id,
+        Data.buttonAccept.class
       );
 
       // Create Reject Optional Cookies
-      dsCookieConsentBanner.createButton(
-        data.buttonReject.text,
-        data.buttonReject.url,
-        data.buttonReject.id,
-        data.buttonReject.class
+      dsCookieConsentBannerAPI.createButton(
+        Data.buttonReject.text,
+        Data.buttonReject.url,
+        Data.buttonReject.id,
+        Data.buttonReject.class
       );
 
       // Select the buttons
       // !important - Do not move these above the DOM implementation
-      const btnAccept = document.querySelector("#accept_optional_cookies");
-      const btnReject = document.querySelector("#reject_optional_cookies");
-      const btnPreference = document.querySelector("#btn_preferences");
-      const bannerParagraph = document.querySelector(".cookie-p");
-      const cookieHead = document.querySelector(".cookie_head");
+      const btnAccept = document.querySelector(Data.buttonAccept.id);
+      const btnReject = document.querySelector(Data.buttonReject.id);
+      const btnPreference = document.querySelector(Data.buttonPreferences.id);
+      const bannerParagraph = document.querySelector(Data.bannerParagraph.id);
+      const cookieHead = document.querySelector(Data.bannerHeadline.id);
 
       // Check if the button Accept Optional Cookies exists
       if (btnAccept) {
@@ -139,24 +170,24 @@ const getCookieForm = document.querySelector("#ds-cookie-consent-form");
           e.preventDefault();
 
           // Create dontShowCookieNotice cookie
-          dsCookieConsentBanner.setCookie("dontShowCookieNotice", "true", {
+          dsCookieConsentBannerAPI.setCookie(Data.cookies.cookieOne, "true", {
             "max-age": 3600,
           });
 
           // Create/Update cookies_policy cookie
-          dsCookieConsentBanner.setCookie(
-            "cookies_policy",
+          dsCookieConsentBannerAPI.setCookie(
+            Data.cookies.cookieTwo,
             '{"usage":true,"settings":true,"essential":true}',
             {
               "max-age": 3600,
             }
           );
 
-          dsCookieConsentBanner.createButton(
-            data.hideThisMessage.text,
-            data.hideThisMessage.url,
-            data.hideThisMessage.id,
-            data.hideThisMessage.class
+          dsCookieConsentBannerAPI.createButton(
+            Data.hideThisMessage.text,
+            Data.hideThisMessage.url,
+            Data.hideThisMessage.id,
+            Data.hideThisMessage.class
           );
 
           if (btnAccept) {
@@ -176,17 +207,20 @@ const getCookieForm = document.querySelector("#ds-cookie-consent-form");
           }
 
           if (bannerParagraph) {
-            bannerParagraph.innerHTML =
-              "You have accepted additional cookies. You can <a href='/latin/legal/cookies'>change your cookie settings</a> at any time.";
+            bannerParagraph.innerHTML = Data.messageAfterInteraction.text;
           }
 
-          const hideThisMessage = document.querySelector("#hide_this_message");
+          const hideThisMessage = document.querySelector(
+            Data.hideThisMessage.id
+          );
 
           if (hideThisMessage) {
             hideThisMessage.addEventListener("click", (e) => {
               e.preventDefault();
               // Hide the banner after Reject btn was clicked
-              if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
+              if (
+                dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)
+              ) {
                 if (getBannerElement) {
                   getBannerElement.remove();
                 }
@@ -203,13 +237,13 @@ const getCookieForm = document.querySelector("#ds-cookie-consent-form");
           e.preventDefault();
 
           // Create dontShowCookieNotice cookie
-          dsCookieConsentBanner.setCookie("dontShowCookieNotice", "true", {
+          dsCookieConsentBannerAPI.setCookie(Data.cookies.cookieOne, "true", {
             "max-age": 3600,
           });
 
           // Create/Update cookies_policy cookie
-          dsCookieConsentBanner.setCookie(
-            "cookies_policy",
+          dsCookieConsentBannerAPI.setCookie(
+            Data.cookies.cookieTwo,
             '{"usage":false,"settings":false,"essential":true}',
             {
               "max-age": 3600,
@@ -217,7 +251,7 @@ const getCookieForm = document.querySelector("#ds-cookie-consent-form");
           );
 
           // Hide the banner after Reject btn was clicked
-          if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
+          if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
             if (getBannerElement) {
               getBannerElement.remove();
             }
@@ -229,7 +263,7 @@ const getCookieForm = document.querySelector("#ds-cookie-consent-form");
 
   // If the cookie dontShowCookieNotice exists
   // Hide the banner if visible
-  if (dsCookieConsentBanner.checkCookie("dontShowCookieNotice")) {
+  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
     if (getBannerElement) {
       getBannerElement.remove();
     }

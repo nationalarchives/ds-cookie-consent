@@ -87,8 +87,8 @@ if(isset( $_POST['submit'] )) {
 }
 
 function cookie_banner() {
-   printf('<div id="ds-cookie-consent-banner" class="cookieConsent">
-    <div class="container">
+   printf('<div id="ds-cookie-consent-banner" class="cookieConsent" role="region" aria-label="Cookie banner">
+    <div class="container" role="region" aria-label="Cookies on The National Archives">
         <div class="row">
             <h3 class="cookie_head">This website uses cookies</h3>
             <p class="cookie-p">

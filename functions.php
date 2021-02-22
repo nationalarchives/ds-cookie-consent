@@ -5,7 +5,6 @@ function wpse_load_plugin_scripts() {
     $plugin_url = plugin_dir_url( __FILE__ );
     wp_enqueue_style( 'ds-cookie-consent-css', $plugin_url . 'lib/ds-cookie-consent.css');
     wp_enqueue_script( 'ds-cookie-consent-js', $plugin_url . 'lib/ds-cookie-consent.js', array(), '1.0.0', true );
-
 }
 
 // Add custom javascript
