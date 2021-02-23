@@ -157,13 +157,14 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
 
       // Select the buttons
       // !important - Do not move these above the DOM implementation
-      const btnAccept = document.querySelector(Data.buttonAccept.id);
-      const btnReject = document.querySelector(Data.buttonReject.id);
+      const btnAccept = document.querySelector(`#${Data.buttonAccept.id}`);
+      const btnReject = document.querySelector(`#${Data.buttonReject.id}`);
       const btnPreference = document.querySelector(Data.buttonPreferences.id);
       const bannerParagraph = document.querySelector(Data.bannerParagraph.id);
       const cookieHead = document.querySelector(Data.bannerHeadline.id);
 
       // Check if the button Accept Optional Cookies exists
+      console.log(btnAccept);
       if (btnAccept) {
         // Binding to document (event delegation)
         btnAccept.addEventListener("click", (e) => {
