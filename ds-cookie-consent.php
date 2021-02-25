@@ -103,6 +103,4 @@ function cookie_banner() {
 if (!isset($_COOKIE['dontShowCookieNotice'])) {
     add_action('wp_footer', 'cookie_banner');
 }
-
-
 ?>

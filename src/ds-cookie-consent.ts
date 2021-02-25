@@ -10,6 +10,7 @@ interface ICookieConsent {
     options: { secure?: boolean; "max-age": number }
   ): void;
   checkCookie(name: string): boolean;
+  deleteCookie(...cname: string[]): void;
 }
 
 const Data = {
@@ -57,15 +58,34 @@ const Data = {
   oldCookieBannerWrapper: {
     class: ".cookieNotice",
   },
+  cookiesToRemove: {
+    one: "_ga",
+    two: "_gid",
+    three: "_gat_UA-2827241-1",
+  },
 };
 
 // Business logic
 const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
   // Delete cookie
-  const deleteCookie = (name) => {
-    setCookie(name, "", {
-      "max-age": -1,
-    });
+  const deleteCookie = (...cname) => {
+    let cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i];
+      let eqPos = cookie.indexOf("=");
+      let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+      cname.forEach((c) => {
+        if (name.trim() === c) {
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;domain="`;
+          /*below line is to delete the google analytics cookies. they are set with the domain*/
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;domain=${location.hostname.replace(
+            /^www\./i,
+            ""
+          )}`;
+        }
+      });
+    }
   };
 
   // Set cookie
@@ -119,6 +139,7 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
     createButton,
     setCookie,
     checkCookie,
+    deleteCookie,
   };
 })();
 
@@ -130,6 +151,13 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
   document.addEventListener("DOMContentLoaded", () => {
     const oldCookieNotice = document.querySelector(
       Data.oldCookieBannerWrapper.class
+    );
+
+    // Delete GA cookies
+    dsCookieConsentBannerAPI.deleteCookie(
+      Data.cookiesToRemove.one,
+      Data.cookiesToRemove.two,
+      Data.cookiesToRemove.three
     );
 
     // Hide the old yellow Cookie banner for the MVP
@@ -164,7 +192,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       const cookieHead = document.querySelector(Data.bannerHeadline.id);
 
       // Check if the button Accept Optional Cookies exists
-      console.log(btnAccept);
       if (btnAccept) {
         // Binding to document (event delegation)
         btnAccept.addEventListener("click", (e) => {
@@ -212,7 +239,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
           }
 
           const hideThisMessage = document.querySelector(
-            Data.hideThisMessage.id
+            `#${Data.hideThisMessage.id}`
           );
 
           if (hideThisMessage) {
