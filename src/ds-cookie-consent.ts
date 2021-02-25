@@ -7,7 +7,7 @@ interface ICookieConsent {
   setCookie(
     name: string,
     value: string,
-    options: { secure?: boolean; "max-age": number }
+    options: { secure?: boolean; "max-age": number; domain?: string }
   ): void;
   checkCookie(name: string): boolean;
   deleteCookie(...cname: string[]): void;
@@ -154,8 +154,14 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       Data.oldCookieBannerWrapper.class
     );
 
-    // Delete GA cookies
+    dsCookieConsentBannerAPI.setCookie("_gaa", "true", {
+      "max-age": 3600,
+      domain: ".nationalarchives.gov.uk",
+    });
+
+    //Delete GA cookies
     dsCookieConsentBannerAPI.deleteCookie(
+      "_gaa",
       Data.cookiesToRemove.one,
       Data.cookiesToRemove.two,
       Data.cookiesToRemove.three
