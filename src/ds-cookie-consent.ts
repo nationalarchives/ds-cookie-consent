@@ -83,6 +83,7 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
             /^www\./i,
             ""
           )}`;
+          console.log("done");
         }
       });
     }
