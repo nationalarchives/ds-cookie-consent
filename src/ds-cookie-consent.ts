@@ -83,7 +83,6 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
             /^www\./i,
             ""
           )}`;
-          console.log("done");
         }
       });
     }
@@ -154,18 +153,18 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       Data.oldCookieBannerWrapper.class
     );
 
-    dsCookieConsentBannerAPI.setCookie("_gaa", "true", {
-      "max-age": 3600,
-      domain: ".nationalarchives.gov.uk",
-    });
+    // dsCookieConsentBannerAPI.setCookie("_gaa", "true", {
+    //   "max-age": 3600,
+    //   domain: ".nationalarchives.gov.uk",
+    // });
 
-    //Delete GA cookies
-    dsCookieConsentBannerAPI.deleteCookie(
-      "_gaa",
-      Data.cookiesToRemove.one,
-      Data.cookiesToRemove.two,
-      Data.cookiesToRemove.three
-    );
+    // //Delete GA cookies
+    // dsCookieConsentBannerAPI.deleteCookie(
+    //   "_gaa",
+    //   Data.cookiesToRemove.one,
+    //   Data.cookiesToRemove.two,
+    //   Data.cookiesToRemove.three
+    // );
 
     // Hide the old yellow Cookie banner for the MVP
     if (oldCookieNotice) {
