@@ -3,7 +3,13 @@ interface ICookieConsent {
   globalCookieName?: string;
   bannerWrapper?: string;
   innerElemWrapper?: string;
-  createButton(text: string, url: string, id: string, className: string): void;
+  createButton(
+    text: string,
+    url: string,
+    id: string,
+    className: string,
+    tabindex?: number
+  ): void;
   setCookie(
     name: string,
     value: string,
@@ -19,18 +25,21 @@ const Data = {
     url: "#",
     id: "accept_optional_cookies",
     class: "button",
+    tabIndex: 1,
   },
   buttonReject: {
     text: "Reject optional cookies",
     url: "#",
     id: "reject_optional_cookies",
     class: "button",
+    tabIndex: 1,
   },
   hideThisMessage: {
     text: "Hide this message",
     url: "#",
     id: "hide_this_message",
     class: "button",
+    tabIndex: 1,
   },
   buttonPreferences: {
     id: "#btn_preferences",
@@ -53,7 +62,7 @@ const Data = {
   },
   messageAfterInteraction: {
     text:
-      "You have accepted additional cookies. You can <a href='/latin/legal/cookies'>change your cookie settings</a> at any time.",
+      "You have accepted additional cookies. You can <a href='https://test.nationalarchives.gov.uk/latin/legal/cookies'>change your cookie settings</a> at any time.",
   },
   oldCookieBannerWrapper: {
     class: ".cookieNotice",
@@ -119,7 +128,7 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
   };
 
   // Create buttons inside the banner
-  const createButton = (text, url, id, className) => {
+  const createButton = (text, url, id, className, tabindex) => {
     const getInnerElem = document.querySelector(Data.buttonPreferences.id);
     const createButtonLink = document.createElement("a");
     const linkText = document.createTextNode(text);
@@ -130,6 +139,7 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
       createButtonLink.href = url;
       createButtonLink.className = className;
       createButtonLink.id = id;
+      createButtonLink.tabIndex = tabindex;
       parentElement.insertBefore(createButtonLink, getInnerElem);
     }
   };
@@ -153,19 +163,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       Data.oldCookieBannerWrapper.class
     );
 
-    // dsCookieConsentBannerAPI.setCookie("_gaa", "true", {
-    //   "max-age": 3600,
-    //   domain: ".nationalarchives.gov.uk",
-    // });
-
-    // //Delete GA cookies
-    // dsCookieConsentBannerAPI.deleteCookie(
-    //   "_gaa",
-    //   Data.cookiesToRemove.one,
-    //   Data.cookiesToRemove.two,
-    //   Data.cookiesToRemove.three
-    // );
-
     // Hide the old yellow Cookie banner for the MVP
     if (oldCookieNotice) {
       oldCookieNotice.remove();
@@ -178,7 +175,8 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
         Data.buttonAccept.text,
         Data.buttonAccept.url,
         Data.buttonAccept.id,
-        Data.buttonAccept.class
+        Data.buttonAccept.class,
+        Data.buttonAccept.tabIndex
       );
 
       // Create Reject Optional Cookies
@@ -186,7 +184,8 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
         Data.buttonReject.text,
         Data.buttonReject.url,
         Data.buttonReject.id,
-        Data.buttonReject.class
+        Data.buttonReject.class,
+        Data.buttonReject.tabIndex
       );
 
       // Select the buttons
@@ -221,7 +220,8 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             Data.hideThisMessage.text,
             Data.hideThisMessage.url,
             Data.hideThisMessage.id,
-            Data.hideThisMessage.class
+            Data.hideThisMessage.class,
+            Data.hideThisMessage.tabIndex
           );
 
           if (btnAccept) {

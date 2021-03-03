@@ -88,19 +88,19 @@ if(isset( $_POST['submit'] )) {
 
 function cookie_banner() {
    printf('<div id="ds-cookie-consent-banner" class="cookieConsent" role="region" aria-label="Cookie banner">
-    <div class="container" role="region" aria-label="Cookies on The National Archives">
-        <div class="row">
+    <div class="container" role="region" aria-label="Cookies on The National Archives" tabindex="1">
+        <div class="row" >
             <h3 class="cookie_head">This website uses cookies</h3>
-            <p class="cookie-p">
+            <p class="cookie-p"t>
                 We place some essential cookies on your device to make this website work.<br > We also use optional analytics cookies to understand how you use The National Archives website, and to help us make improvements to our services.
             </p>
-            <a href="/latin/legal/cookies" id="btn_preferences" class="button">View cookies</a>
+            <a href="https://test.nationalarchives.gov.uk/latin/legal/cookies" tabindex="1" id="btn_preferences" class="button">View cookies</a>
         </div>
     </div>
     </div>');
 }
 
 if (!isset($_COOKIE['dontShowCookieNotice'])) {
-    add_action('wp_footer', 'cookie_banner');
+    add_action('wp_cookie_banner_hook', 'cookie_banner');
 }
 ?>
