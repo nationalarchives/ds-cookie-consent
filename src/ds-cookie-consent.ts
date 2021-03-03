@@ -62,7 +62,7 @@ const Data = {
   },
   messageAfterInteraction: {
     text:
-      "You have accepted additional cookies. You can <a href='https://test.nationalarchives.gov.uk/latin/legal/cookies'>change your cookie settings</a> at any time.",
+      "You have accepted additional cookies. You can <a href='/latin/legal/cookies/'>change your cookie settings</a> at any time.",
   },
   oldCookieBannerWrapper: {
     class: ".cookieNotice",

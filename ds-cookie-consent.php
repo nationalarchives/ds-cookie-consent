@@ -94,7 +94,7 @@ function cookie_banner() {
             <p class="cookie-p"t>
                 We place some essential cookies on your device to make this website work.<br > We also use optional analytics cookies to understand how you use The National Archives website, and to help us make improvements to our services.
             </p>
-            <a href="https://test.nationalarchives.gov.uk/latin/legal/cookies" tabindex="1" id="btn_preferences" class="button">View cookies</a>
+            <a href="/latin/legal/cookies/" tabindex="1" id="btn_preferences" class="button">View cookies</a>
         </div>
     </div>
     </div>');
