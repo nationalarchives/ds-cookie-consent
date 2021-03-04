@@ -209,7 +209,7 @@ function shortcode_settings_page( $atts ) {
         $reject_settings_option = "";
     }
 
-    $output = '<form method="post" action="/latin/legal/cookies" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
+    $output = '<form method="post" action="/latin/legal/cookies/" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
     $output .= '<fieldset>';
     $output .= (!empty($_POST)) ? cookie_success_message() : '';
     $output .= '<legend class="sr-only">Cookie settings</legend>';
