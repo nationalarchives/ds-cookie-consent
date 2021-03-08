@@ -68,10 +68,11 @@
     #btn_preferences {
       background: none;
       border: none;
-      text-decoration: none;
+      text-decoration: underline;
       &:hover {
         background: #000;
         color: #fff;
+        text-decoration: none;
       }
       &:focus {
         color: #fff;

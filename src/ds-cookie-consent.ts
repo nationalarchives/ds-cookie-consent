@@ -1,24 +1,4 @@
 // Typed data
-interface ICookieConsent {
-  globalCookieName?: string;
-  bannerWrapper?: string;
-  innerElemWrapper?: string;
-  createButton(
-    text: string,
-    url: string,
-    id: string,
-    className: string,
-    tabindex?: number
-  ): void;
-  setCookie(
-    name: string,
-    value: string,
-    options: { secure?: boolean; "max-age": number; domain?: string }
-  ): void;
-  checkCookie(name: string): boolean;
-  deleteCookie(...cname: string[]): void;
-}
-
 const Data = {
   buttonAccept: {
     text: "Accept optional cookies",
@@ -62,7 +42,8 @@ const Data = {
   },
   messageAfterInteraction: {
     text:
-      "You have accepted additional cookies. You can <a href='/latin/legal/cookies/'>change your cookie settings</a> at any time.",
+      "You can change your cookie settings on the <a href='/latin/legal/cookies/'>Cookies</a> page.",
+    ariaLabel: "Cookie consent confirmation message",
   },
   oldCookieBannerWrapper: {
     class: ".cookieNotice",
@@ -73,6 +54,26 @@ const Data = {
     three: "_gat_UA-2827241-1",
   },
 };
+
+interface ICookieConsent {
+  globalCookieName?: string;
+  bannerWrapper?: string;
+  innerElemWrapper?: string;
+  createButton(
+    text: string,
+    url: string,
+    id: string,
+    className: string,
+    tabindex?: number
+  ): void;
+  setCookie(
+    name: string,
+    value: string,
+    options: { secure?: boolean; "max-age": number; domain?: string }
+  ): void;
+  checkCookie(name: string): boolean;
+  deleteCookie(...cname: string[]): void;
+}
 
 // Business logic
 const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
@@ -195,6 +196,9 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       const btnPreference = document.querySelector(Data.buttonPreferences.id);
       const bannerParagraph = document.querySelector(Data.bannerParagraph.id);
       const cookieHead = document.querySelector(Data.bannerHeadline.id);
+      const getBannerElementContainer = getBannerElement.querySelector(
+        ".container"
+      );
 
       // Check if the button Accept Optional Cookies exists
       if (btnAccept) {
@@ -242,12 +246,18 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
 
           if (bannerParagraph) {
             bannerParagraph.innerHTML = Data.messageAfterInteraction.text;
+            getBannerElementContainer.setAttribute(
+              "aria-label",
+              Data.messageAfterInteraction.ariaLabel
+            );
           }
 
+          // Get the Hide This Message DOM element
           const hideThisMessage = document.querySelector(
             `#${Data.hideThisMessage.id}`
           );
 
+          // If Hide This Message DOM exists, hide banner
           if (hideThisMessage) {
             hideThisMessage.addEventListener("click", (e) => {
               e.preventDefault();
