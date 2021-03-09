@@ -40,9 +40,14 @@ const Data = {
   formWrapper: {
     id: "#ds-cookie-consent-form",
   },
-  messageAfterInteraction: {
+  acceptMessageAfterInteraction: {
     text:
       "You can change your cookie settings on the <a href='/latin/legal/cookies/'>Cookies</a> page.",
+    ariaLabel: "Cookie consent confirmation message",
+  },
+  rejectMessageAfterInteraction: {
+    text:
+      "You have rejected optional cookies. You can change your cookie settings on the <a href='/latin/legal/cookies/'>Cookies</a> page.",
     ariaLabel: "Cookie consent confirmation message",
   },
   oldCookieBannerWrapper: {
@@ -245,10 +250,10 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
           }
 
           if (bannerParagraph) {
-            bannerParagraph.innerHTML = Data.messageAfterInteraction.text;
+            bannerParagraph.innerHTML = Data.acceptMessageAfterInteraction.text;
             getBannerElementContainer.setAttribute(
               "aria-label",
-              Data.messageAfterInteraction.ariaLabel
+              Data.acceptMessageAfterInteraction.ariaLabel
             );
           }
 
@@ -294,11 +299,65 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             }
           );
 
-          // Hide the banner after Reject btn was clicked
-          if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
-            if (getBannerElement) {
-              getBannerElement.remove();
+          // Create/Update cookies_policy cookie
+          dsCookieConsentBannerAPI.setCookie(
+            Data.cookies.cookieTwo,
+            '{"usage":true,"settings":true,"essential":true}',
+            {
+              "max-age": 3600,
             }
+          );
+
+          dsCookieConsentBannerAPI.createButton(
+            Data.hideThisMessage.text,
+            Data.hideThisMessage.url,
+            Data.hideThisMessage.id,
+            Data.hideThisMessage.class,
+            Data.hideThisMessage.tabIndex
+          );
+
+          if (btnAccept) {
+            btnAccept.remove();
+          }
+
+          if (btnReject) {
+            btnReject.remove();
+          }
+
+          if (btnPreference) {
+            btnPreference.remove();
+          }
+
+          if (cookieHead) {
+            cookieHead.remove();
+          }
+
+          if (bannerParagraph) {
+            bannerParagraph.innerHTML = Data.rejectMessageAfterInteraction.text;
+            getBannerElementContainer.setAttribute(
+              "aria-label",
+              Data.rejectMessageAfterInteraction.ariaLabel
+            );
+          }
+
+          // Get the Hide This Message DOM element
+          const hideThisMessage = document.querySelector(
+            `#${Data.hideThisMessage.id}`
+          );
+
+          // If Hide This Message DOM exists, hide banner
+          if (hideThisMessage) {
+            hideThisMessage.addEventListener("click", (e) => {
+              e.preventDefault();
+              // Hide the banner after Reject btn was clicked
+              if (
+                dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)
+              ) {
+                if (getBannerElement) {
+                  getBannerElement.remove();
+                }
+              }
+            });
           }
         });
       }
