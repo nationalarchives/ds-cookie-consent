@@ -299,15 +299,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             }
           );
 
-          // Create/Update cookies_policy cookie
-          dsCookieConsentBannerAPI.setCookie(
-            Data.cookies.cookieTwo,
-            '{"usage":true,"settings":true,"essential":true}',
-            {
-              "max-age": 3600,
-            }
-          );
-
           dsCookieConsentBannerAPI.createButton(
             Data.hideThisMessage.text,
             Data.hideThisMessage.url,
