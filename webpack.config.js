@@ -8,11 +8,27 @@ module.exports = {
     filename: "ds-cookie-consent.js",
     path: path.resolve(__dirname, "lib"),
   },
+  target: ["web", "es5"],
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        loader: "babel-loader",
+        test: /\.(ts|tsx|js)$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  targets: {
+                    ie: "11",
+                  },
+                },
+              ],
+            ],
+          },
+        },
       },
     ],
   },

@@ -4,6 +4,24 @@ import dsCookieConsentBannerAPI from "./api/dsCookieConsentBannerAPI";
 const getBannerElement = document.querySelector(Data.bannerWrapper.id);
 const getCookieForm = document.querySelector(Data.formWrapper.id);
 
+// Polyfill the remove() method IE9 and higher
+// from:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
+(function (arr) {
+  arr.forEach(function (item) {
+    if (item.hasOwnProperty("remove")) {
+      return;
+    }
+    Object.defineProperty(item, "remove", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function remove() {
+        this.parentNode.removeChild(this);
+      },
+    });
+  });
+})([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
 // Banner DOM implementation
 (function () {
   document.addEventListener("DOMContentLoaded", () => {
