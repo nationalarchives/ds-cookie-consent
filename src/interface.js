@@ -1,4 +1,4 @@
-export interface ICookieConsent {
+interface ICookieConsent {
   globalCookieName?: string;
   bannerWrapper?: string;
   innerElemWrapper?: string;
@@ -23,3 +23,5 @@ export interface ICookieConsent {
   checkCookie(name: string): boolean;
   deleteCookie(...cname: string[]): void;
 }
+
+export default ICookieConsent;

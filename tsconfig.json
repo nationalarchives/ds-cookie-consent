@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true,
+    "outDir": "./lib/",
+    "module": "commonjs",
+    "target": "es5",
+    "allowJs": true
   }
 }

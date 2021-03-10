@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/ds-cookie-consent.ts",
   output: {
     filename: "ds-cookie-consent.js",

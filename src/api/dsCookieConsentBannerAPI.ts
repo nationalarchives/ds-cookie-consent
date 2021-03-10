@@ -1,8 +1,8 @@
-import { ICookieConsent } from "../interface";
 import Data from "../data";
+import ICookieConsent from "../interface";
 
 // DS COOKIE CONSENT BANNER API
-const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
+const dsCookieConsentBannerAPI: ICookieConsent = (() => {
   // Delete cookie
   function deleteCookie(...cname) {
     let cookies = document.cookie.split(";");
