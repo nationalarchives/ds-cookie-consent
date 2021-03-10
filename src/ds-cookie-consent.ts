@@ -66,6 +66,12 @@ interface ICookieConsent {
   innerElemWrapper?: string;
   createButton(
     text: string,
+    id: string,
+    className: string,
+    tabindex?: number
+  ): void;
+  createLink(
+    text: string,
     url: string,
     id: string,
     className: string,
@@ -133,8 +139,8 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
     return -1 !== document.cookie.indexOf(name);
   };
 
-  // Create buttons inside the banner
-  const createButton = (text, url, id, className, tabindex) => {
+  // Create link element inside the banner
+  const createLink = (text, url, id, className, tabindex) => {
     const getInnerElem = document.querySelector(Data.buttonPreferences.id);
     const createButtonLink = document.createElement("a");
     const linkText = document.createTextNode(text);
@@ -150,9 +156,26 @@ const dsCookieConsentBannerAPI: ICookieConsent = ((): any => {
     }
   };
 
+  // Create link element inside the banner
+  const createButton = (text, id, className, tabindex) => {
+    const getInnerElem = document.querySelector(Data.buttonPreferences.id);
+    const createButtonLink = document.createElement("button");
+    const linkText = document.createTextNode(text);
+
+    if (getInnerElem) {
+      const parentElement = getInnerElem.parentNode;
+      createButtonLink.appendChild(linkText);
+      createButtonLink.className = className;
+      createButtonLink.id = id;
+      createButtonLink.tabIndex = tabindex;
+      parentElement.insertBefore(createButtonLink, getInnerElem);
+    }
+  };
+
   // Revealing public API
   return {
     createButton,
+    createLink,
     setCookie,
     checkCookie,
     deleteCookie,
@@ -179,7 +202,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       // Create Accept Optional Cookies
       dsCookieConsentBannerAPI.createButton(
         Data.buttonAccept.text,
-        Data.buttonAccept.url,
         Data.buttonAccept.id,
         Data.buttonAccept.class,
         Data.buttonAccept.tabIndex
@@ -188,7 +210,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       // Create Reject Optional Cookies
       dsCookieConsentBannerAPI.createButton(
         Data.buttonReject.text,
-        Data.buttonReject.url,
         Data.buttonReject.id,
         Data.buttonReject.class,
         Data.buttonReject.tabIndex
@@ -225,7 +246,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             }
           );
 
-          dsCookieConsentBannerAPI.createButton(
+          dsCookieConsentBannerAPI.createLink(
             Data.hideThisMessage.text,
             Data.hideThisMessage.url,
             Data.hideThisMessage.id,
@@ -299,7 +320,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             }
           );
 
-          dsCookieConsentBannerAPI.createButton(
+          dsCookieConsentBannerAPI.createLink(
             Data.hideThisMessage.text,
             Data.hideThisMessage.url,
             Data.hideThisMessage.id,
