@@ -1,5 +1,6 @@
 <?php
-
+// Shorcode which enables the form
+// ont the Cookies Settings page
 function shortcode_settings_page( $atts ) {
     $a = shortcode_atts( array(
     'usage' => 'show',
@@ -14,24 +15,32 @@ function shortcode_settings_page( $atts ) {
 
     $cookies_policy_to_obj = decode_cookie('cookies_policy');
 
+    // If the user accept the Google Analitics cookies
+    // turn ON the radio selection
     if ($cookies_policy_to_obj->usage === true) {
         $accept_usage_option = "checked='checked'";
     } else {
         $accept_usage_option = "";
     }
 
+    // If the user doesn't consent the cookies
+    // turn OFF the radio selection
     if ($cookies_policy_to_obj->usage === false) {
         $reject_usage_option = "checked='checked'";
     } else {
         $reject_usage_option = "";
     }
 
+    // If the user accept the Settings cookies
+    // turn ON the radio selection
     if ($cookies_policy_to_obj->settings === true) {
         $accept_settings_option = "checked='checked'";
     } else {
         $accept_settings_option = "";
     }
 
+    // If the user reject the Settings cookies
+    // turn OFF the radio selection
     if ($cookies_policy_to_obj->settings === false) {
         $reject_settings_option = "checked='checked'";
     } else {
