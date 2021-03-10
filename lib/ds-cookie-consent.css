@@ -35,6 +35,13 @@
   margin-bottom: 15px;
   margin-top: 10px;
 }
+#ds-cookie-consent-banner .container .cookie-p br {
+  content: "";
+  display: block;
+  font-size: 100%;
+  height: 0.4em;
+  display: block;
+}
 #ds-cookie-consent-banner .container .cookie-p a {
   color: #fff;
 }
@@ -56,12 +63,14 @@
   border: #eee;
   text-decoration: none;
   margin-right: 20px;
+  border: 2px solid #fff;
 }
 #ds-cookie-consent-banner .container #hide_this_message:hover,
 #ds-cookie-consent-banner .container #reject_optional_cookies:hover,
 #ds-cookie-consent-banner .container #accept_optional_cookies:hover {
   background: #000;
   color: #fff;
+  border: 2px solid #fff;
 }
 @media (max-width: 560px) {
   #ds-cookie-consent-banner .container #hide_this_message,
@@ -74,12 +83,14 @@
 #ds-cookie-consent-banner .container #btn_preferences {
   background: none;
   border: none;
+  border: 2px solid transparent;
   text-decoration: underline;
 }
 #ds-cookie-consent-banner .container #btn_preferences:hover {
   background: #000;
   color: #fff;
   text-decoration: none;
+  border: 2px solid #fff;
 }
 #ds-cookie-consent-banner .container #btn_preferences:focus {
   color: #fff;

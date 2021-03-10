@@ -7,6 +7,18 @@ function wpse_load_plugin_scripts() {
     wp_enqueue_script( 'ds-cookie-consent-js', $plugin_url . 'lib/ds-cookie-consent.js', array(), '1.0.0', true );
 }
 
+function add_type_attribute($tag, $handle, $src) {
+    // if not your script, do nothing and return original $tag
+    if ( 'ds-cookie-consent-js' !== $handle ) {
+        return $tag;
+    }
+    // change the script tag by adding type="module" and return it.
+    $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
+    return $tag;
+}
+
+add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
+
 // Add custom javascript
 function wpse_load_plugin_js() {
     $plugin_url = plugin_dir_url( __FILE__ );

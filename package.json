@@ -1,19 +1,26 @@
 {
   "name": "ds-cookie-consentt",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "dev": "concurrently --kill-others \"babel src --out-dir lib --extensions '.ts,.tsx' --watch\" \"sass src/ds-cookie-consent.scss lib/ds-cookie-consent.css --watch\"",
-    "build": "concurrently --kill-others \"babel src --out-dir lib --extensions '.ts,.tsx' \" \"sass src/ds-cookie-consent.scss lib/ds-cookie-consent.css \"",
+    "dev": "concurrently --kill-others \"webpack --watch\" \"sass src/ds-cookie-consent.scss lib/ds-cookie-consent.css --watch\"",
+    "build": "concurrently --kill-others \"webpack \" \"sass src/ds-cookie-consent.scss lib/ds-cookie-consent.css \"",
     "tsc": "tsc"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.17",
-    "@babel/core": "^7.12.17",
+    "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.12.17",
-    "@babel/preset-typescript": "^7.12.17",
-    "concurrently": "^6.0.0"
+    "@babel/preset-typescript": "^7.13.0",
+    "concurrently": "^6.0.0",
+    "source-map-loader": "^2.0.1",
+    "typescript": "^4.2.3",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "add": "^2.0.6",
+    "babel-loader": "^8.2.2",
     "cypress": "^6.6.0",
     "husky": "^5.0.9"
   }

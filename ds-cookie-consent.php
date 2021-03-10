@@ -91,8 +91,10 @@ function cookie_banner() {
     <div class="container" role="region" aria-label="Cookies on The National Archives" tabindex="1">
         <div class="row" >
             <h3 class="cookie_head">This website uses cookies</h3>
-            <p class="cookie-p"t>
-                We place some essential cookies on your device to make this website work.<br > We also use optional analytics cookies to understand how you use The National Archives website, and to help us make improvements to our services.
+            <p class="cookie-p">
+                We place some essential cookies on your device to make this website work.<br><br>
+                Analytics cookies help us improve this website. These cookies are optional.<br> 
+                They help us understand how you use our services.
             </p>
             <a href="/latin/legal/cookies/" tabindex="1" id="btn_preferences" class="button">View cookies</a>
         </div>

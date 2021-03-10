@@ -34,6 +34,13 @@
       color: #ffffff;
       margin-bottom: 15px;
       margin-top: 10px;
+      br {
+        content: "";
+        display: block;
+        font-size: 100%;
+        height: 0.4em;
+        display: block;
+      }
       a {
         color: #fff;
         &:hover {
@@ -56,9 +63,11 @@
       border: #eee;
       text-decoration: none;
       margin-right: 20px;
+      border: 2px solid #fff;
       &:hover {
         background: #000;
         color: #fff;
+        border: 2px solid #fff;
       }
       @media (max-width: 560px) {
         display: block;
@@ -68,11 +77,13 @@
     #btn_preferences {
       background: none;
       border: none;
+      border: 2px solid transparent;
       text-decoration: underline;
       &:hover {
         background: #000;
         color: #fff;
         text-decoration: none;
+        border: 2px solid #fff;
       }
       &:focus {
         color: #fff;
