@@ -25,7 +25,7 @@ function cookie_banner() {
                  We place some essential cookies on your device to make this website work.<br><br>
                  Analytics cookies help us improve this website. These cookies are optional. They help us understand how you use our services.
              </p>
-             <a href="/latin/legal/cookies/" tabindex="1" id="btn_preferences" class="button">View cookies</a>
+             <a href="/latin/cookies/" tabindex="1" id="btn_preferences" class="button">View cookies</a>
          </div>
      </div>
      </div>');
