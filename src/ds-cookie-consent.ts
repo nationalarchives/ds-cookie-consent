@@ -134,6 +134,14 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
               }
             });
           }
+
+          // Add GA script and set the cookies at the client side
+          const DOMhead = document.head;
+          const gaScript = document.createElement("script");
+          gaScript.id = "frontEndGA";
+          gaScript.src =
+            "/wp-content/plugins/ds-cookie-consent/lib/gtm-script.js";
+          DOMhead.appendChild(gaScript);
         });
       }
 
