@@ -1,6 +1,17 @@
 #ds-cookie-consent-form {
   input[type="radio"] {
-    margin-right: 5px;
+    margin-right: 7px;
+    + label {
+      cursor: pointer;
+      @media only screen and (max-width: 818px) {
+        display: inline;
+      }
+    }
+  }
+
+  #form_submit:focus {
+    background-color: #fff;
+    color: #26262a;
   }
 }
 
@@ -17,7 +28,7 @@
     background: #134571;
     padding: 10px 40px 25px 40px;
     border-radius: 5px;
-    h3 {
+    .cookie_head {
       font-family: "Roboto Mono";
       font-style: normal;
       font-weight: normal;
@@ -64,10 +75,13 @@
       text-decoration: none;
       margin-right: 20px;
       border: 2px solid #fff;
-      &:hover {
+      &:hover, &:focus {
         background: #000;
         color: #fff;
         border: 2px solid #fff;
+      }
+      &:focus {
+        outline: 5px solid #fff;
       }
       @media (max-width: 560px) {
         display: block;
@@ -79,14 +93,14 @@
       border: none;
       border: 2px solid transparent;
       text-decoration: underline;
-      &:hover {
+      &:hover, &:focus {
         background: #000;
         color: #fff;
         text-decoration: none;
         border: 2px solid #fff;
       }
       &:focus {
-        color: #fff;
+        outline: 5px solid #fff;
       }
       @media (max-width: 675px) {
         margin-top: 5px;
