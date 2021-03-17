@@ -216,6 +216,20 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
               }
             });
           }
+
+          const cookiesToUnset = [
+            Data.cookiesToRemove.one,
+            Data.cookiesToRemove.two,
+            Data.cookiesToRemove.three,
+            Data.cookiesToRemove.four,
+          ];
+
+          // Unset GA cookies if available
+          for (const cookie of cookiesToUnset) {
+            if (dsCookieConsentBannerAPI.checkCookie(cookie)) {
+              dsCookieConsentBannerAPI.deleteCookie(cookie);
+            }
+          }
         });
       }
     }
