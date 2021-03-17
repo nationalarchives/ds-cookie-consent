@@ -51,7 +51,7 @@ function shortcode_settings_page( $atts ) {
     $output .= '<fieldset>';
     $output .= (!empty($_POST)) ? cookie_success_message() : '';
     $output .= '<legend class="sr-only">Cookie settings</legend>';
-    $output .= '<h3>' . get_option('our_first_field_headline') . '</h3>';
+    $output .= '<h2>' . get_option('our_first_field_headline') . '</h2>';
     $output .= get_option('our_first_field');
     $output .= '<br><br>';
     $output .= '<div class="form-group">';
@@ -69,7 +69,7 @@ function shortcode_settings_page( $atts ) {
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="remember_your_settings">Use cookies that remember my settings on the site</label><br>' : '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<input type="radio" id="donot_remember_your_settings" name="remember-your-settings" value="no" ' . $reject_settings_option . '>' : '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="donot_remember_your_settings">Do not use cookies that remember my settings on the site</label><br>' : '';
-    $output .= '<h3>' . get_option('our_third_field_headline') . '</h3>';
+    $output .= '<h2>' . get_option('our_third_field_headline') . '</h2>';
     $output .= get_option('our_third_field');
     $output .= '<br><br>';
     $output .= '<div class="tna-form__row"><input type="submit" name="submit" id="form_submit" value="Save cookies" class="tna-button"></div>';
