@@ -22,7 +22,7 @@
     background: #134571;
     padding: 10px 40px 25px 40px;
     border-radius: 5px; }
-    #ds-cookie-consent-banner .container h3 {
+    #ds-cookie-consent-banner .container .cookie_head {
       font-family: "Roboto Mono";
       font-style: normal;
       font-weight: normal;
