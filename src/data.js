@@ -42,7 +42,7 @@ const Data = {
   },
   acceptMessageAfterInteraction: {
     text:
-      "You have accepted optional cookies. You can change your cookie settings on the <a href='/latin/cookies/'>Cookies</a> page.",
+      "You have accepted optional cookies. You can change your cookie settings on the <a href='/latin/cookies/' tabindex=1>Cookies</a> page.",
     ariaLabel: "Cookie consent confirmation message",
   },
   rejectMessageAfterInteraction: {
