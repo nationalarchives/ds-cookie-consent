@@ -21,7 +21,7 @@ function cookie_banner() {
      <div class="container" role="region" aria-label="Cookies on The National Archives" tabindex="1">
          <div class="row" >
              <p class="cookie_head">This website uses cookies</p>
-             <p class="cookie-p" tabindex="0">
+             <p class="cookie-p" tabindex="1">
                  We place some essential cookies on your device to make this website work.<br><br>
                  Analytics cookies help us improve this website. These cookies are optional. They help us understand how you use our services.
              </p>
