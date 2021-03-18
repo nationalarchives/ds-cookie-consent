@@ -83,9 +83,8 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             }
           );
 
-          dsCookieConsentBannerAPI.createLink(
+          dsCookieConsentBannerAPI.createButton(
             Data.hideThisMessage.text,
-            Data.hideThisMessage.url,
             Data.hideThisMessage.id,
             Data.hideThisMessage.class,
             Data.hideThisMessage.tabIndex
@@ -133,6 +132,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
                 }
               }
             });
+            (bannerParagraph as HTMLElement)?.focus();
           }
 
           // Add GA script and set the cookies at the client side
@@ -165,9 +165,8 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             }
           );
 
-          dsCookieConsentBannerAPI.createLink(
+          dsCookieConsentBannerAPI.createButton(
             Data.hideThisMessage.text,
-            Data.hideThisMessage.url,
             Data.hideThisMessage.id,
             Data.hideThisMessage.class,
             Data.hideThisMessage.tabIndex
@@ -215,6 +214,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
                 }
               }
             });
+            (bannerParagraph as HTMLElement)?.focus();
           }
 
           const cookiesToUnset = [
