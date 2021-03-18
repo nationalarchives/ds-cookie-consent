@@ -18,14 +18,14 @@ function cookie_success_message() {
 // Create the HTML Cookie Banner
 function cookie_banner() {
     printf('<div id="ds-cookie-consent-banner" class="cookieConsent" role="region" aria-label="Cookie banner">
-     <div class="container" role="region" aria-label="Cookies on The National Archives" tabindex="1">
+     <div class="container" role="region" aria-label="Cookies on The National Archives" tabindex="0">
          <div class="row" >
              <p class="cookie_head">This website uses cookies</p>
-             <p class="cookie-p">
+             <p class="cookie-p" tabindex="0">
                  We place some essential cookies on your device to make this website work.<br><br>
                  Analytics cookies help us improve this website. These cookies are optional. They help us understand how you use our services.
              </p>
-             <a href="/latin/cookies/" tabindex="1" id="btn_preferences" class="button">View cookies</a>
+             <a href="/latin/cookies/" id="btn_preferences" class="button">View cookies</a>
          </div>
      </div>
      </div>');
