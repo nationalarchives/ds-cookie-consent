@@ -132,7 +132,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
                 }
               }
             });
-            console.log("Accept");
             hideThisMessage.focus();
           }
 
