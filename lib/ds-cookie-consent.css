@@ -100,4 +100,8 @@
         #ds-cookie-consent-banner .container #btn_preferences {
           display: block; } }
 
+@media only screen and (max-width: 768px) {
+  .cookie-consent-table tr td:first-of-type {
+    word-break: break-all; } }
+
 /*# sourceMappingURL=ds-cookie-consent.css.map */

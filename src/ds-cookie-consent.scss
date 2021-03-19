@@ -111,3 +111,13 @@
     }
   }
 }
+
+.cookie-consent-table {
+  @media only screen and (max-width: 768px) {
+    tr {
+      td:first-of-type {
+        word-break: break-all;
+      }
+    }
+  }
+}
