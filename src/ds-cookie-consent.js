@@ -132,7 +132,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
                 }
               }
             });
-            (bannerParagraph as HTMLElement)?.focus();
+            bannerParagraph.focus();
           }
 
           // Add GA script and set the cookies at the client side
@@ -214,7 +214,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
                 }
               }
             });
-            (bannerParagraph as HTMLElement)?.focus();
+            bannerParagraph.focus();
           }
 
           const cookiesToUnset = [

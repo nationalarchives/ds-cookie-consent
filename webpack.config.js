@@ -2,8 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
-  mode: "development",
-  entry: "./src/ds-cookie-consent.ts",
+  mode: "production",
+  entry: "./src/ds-cookie-consent.js",
   output: {
     filename: "ds-cookie-consent.js",
     path: path.resolve(__dirname, "lib"),
@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx|js)$/,
+        test: /\.(js)$/,
         exclude: /(node_modules)/,
         use: {
           loader: "babel-loader",
@@ -32,5 +32,5 @@ module.exports = {
       },
     ],
   },
-  resolve: { extensions: [".js", ".jsx", ".tsx", ".ts", ".json"] },
+  resolve: { extensions: [".js", ".json"] },
 };
