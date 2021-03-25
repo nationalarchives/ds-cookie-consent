@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/ds-cookie-consent.js",
   output: {
     filename: "ds-cookie-consent.js",
-    path: path.resolve(__dirname, "lib"),
+    path: path.resolve(__dirname, "dist"),
   },
   target: ["web", "es5"],
   module: {

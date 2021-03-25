@@ -140,7 +140,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
           const gaScript = document.createElement("script");
           gaScript.id = "frontEndGA";
           gaScript.src =
-            "/wp-content/plugins/ds-cookie-consent/lib/gtm-script.js";
+            "/wp-content/plugins/ds-cookie-consent/dist/gtm-script.js";
           DOMhead.appendChild(gaScript);
         });
       }
