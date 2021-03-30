@@ -28,10 +28,34 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
     const oldCookieNotice = document.querySelector(
       Data.oldCookieBannerWrapper.class
     );
+    const jsON = document.querySelector(Data.DOM.on);
+    const jsOFF = document.querySelector(Data.DOM.off);
+
+    // Display form elements if JS is enable
+    if (jsON) {
+      jsON.style.display = "block";
+    }
+
+    // Hide JS is not enabled message if JS is enabled
+    if (jsOFF) {
+      jsOFF.style.display = "none";
+    }
 
     // Hide the old yellow Cookie banner for the MVP
     if (oldCookieNotice) {
       oldCookieNotice.remove();
+    }
+
+    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+      const cookieValue = {
+        usage: false,
+        settings: false,
+        essential: true,
+      };
+      dsCookieConsentBannerAPI.setCookie(
+        Data.cookies.cookieTwo,
+        JSON.stringify(cookieValue)
+      );
     }
 
     // Check if cookie banner exists

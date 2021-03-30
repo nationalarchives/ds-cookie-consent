@@ -17,38 +17,57 @@ function shortcode_settings_page( $atts ) {
 
     // If the user accept the Google Analitics cookies
     // turn ON the radio selection
-    if ($cookies_policy_to_obj->usage === true) {
-        $accept_usage_option = "checked='checked'";
-    } else {
-        $accept_usage_option = "";
+    if(property_exists($cookies_policy_to_obj, 'usage')) {
+        if ($cookies_policy_to_obj->usage === true) {
+            $accept_usage_option = "checked='checked'";
+        } else {
+            $accept_usage_option = "";
+        }
     }
 
     // If the user doesn't consent the cookies
     // turn OFF the radio selection
-    if ($cookies_policy_to_obj->usage === false) {
-        $reject_usage_option = "checked='checked'";
-    } else {
-        $reject_usage_option = "";
+    if(property_exists($cookies_policy_to_obj, 'usage')) {
+        if ($cookies_policy_to_obj->usage === false) {
+            $reject_usage_option = "checked='checked'";
+        } else {
+            $reject_usage_option = "";
+        }
     }
 
     // If the user accept the Settings cookies
     // turn ON the radio selection
-    if ($cookies_policy_to_obj->settings === true) {
-        $accept_settings_option = "checked='checked'";
-    } else {
-        $accept_settings_option = "";
+    if(property_exists($cookies_policy_to_obj, 'settings')) {
+        if ($cookies_policy_to_obj->settings === true) {
+            $accept_settings_option = "checked='checked'";
+        } else {
+            $accept_settings_option = "";
+        }
     }
 
     // If the user reject the Settings cookies
     // turn OFF the radio selection
-    if ($cookies_policy_to_obj->settings === false) {
-        $reject_settings_option = "checked='checked'";
-    } else {
-        $reject_settings_option = "";
+    if(property_exists($cookies_policy_to_obj, 'settings')) {
+        if ($cookies_policy_to_obj->settings === false) {
+            $reject_settings_option = "checked='checked'";
+        } else {
+            $reject_settings_option = "";
+        }
     }
 
     $output = '<form method="post" action="/latin/cookies/" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
-    $output .= '<fieldset>';
+    $output .= '<fieldset class="jsOFF">';
+    $output .= '<h2>Cookie settings</h2>';
+    $output .= '<p>';
+    $output .= 'We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. <br>';
+    $output .= '<br>';
+    $output .= 'You can try:</p>';
+    $output .= '<ul>';
+    $output .= '<li>reloading the page</li>';
+    $output .= '<li>turning on Javascript in your browser</li>';
+    $output .= '</ul>';
+    $output .= '</fieldset>';
+    $output .= '<fieldset class="jsON">';
     $output .= (!empty($_POST)) ? cookie_success_message() : '';
     $output .= '<legend class="sr-only">Cookie settings</legend>';
     $output .= '<h2>' . get_option('our_first_field_headline') . '</h2>';
