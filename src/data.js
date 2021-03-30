@@ -59,6 +59,10 @@ const Data = {
     three: "_gat_UA-2827241-1",
     four: "_gat_UA-2827241-22",
   },
+  DOM: {
+    on: ".jsON",
+    off: ".jsOFF",
+  },
 };
 
 export default Data;

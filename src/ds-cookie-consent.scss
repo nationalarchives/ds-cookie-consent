@@ -75,7 +75,8 @@
       text-decoration: none;
       margin-right: 20px;
       border: 2px solid #fff;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: #000;
         color: #fff;
         border: 2px solid #fff;
@@ -93,7 +94,8 @@
       border: none;
       border: 2px solid transparent;
       text-decoration: underline;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: #000;
         color: #fff;
         text-decoration: none;
@@ -119,5 +121,14 @@
         word-break: break-all;
       }
     }
+  }
+}
+
+.tna-form-engagement {
+  .jsON {
+    display: none;
+  }
+  .jsOFF {
+    display: block;
   }
 }
