@@ -80,7 +80,7 @@ const dsCookieConsentBannerAPI = (() => {
     for (let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
       let equalSignPos = cookie.indexOf("=");
-      let cookieValue = cookie.slice(cookie.indexOf("=") + 1);
+      let cookieValue = cookie.slice(equalSignPos + 1);
       let cookieName =
         equalSignPos > -1 ? cookie.substr(0, equalSignPos).trim() : cookie;
 
