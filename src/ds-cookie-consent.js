@@ -6,6 +6,10 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
 const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
   Data.cookies.cookieTwo
 );
+let measureRadioInput = document.querySelector(Data.form.analytics.measure);
+let doNotMeasureRadioInput = document.querySelector(
+  Data.form.analytics.doNotMeasure
+);
 
 // Polyfill the remove() method IE9 and higher
 // from:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
@@ -36,9 +40,14 @@ const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
   }
 
   if (getCookieForm) {
-    // Hide the banner from the cookie settings page
-    if (getBannerElement) {
-      getBannerElement.remove();
+    // Update the state on the form radio elements
+    // based on the cookie_policy value
+    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+      // Hide the banner if visible
+      if (getBannerElement) {
+        getBannerElement.remove();
+      }
+      doNotMeasureRadioInput.checked = true;
     }
   }
 })();
@@ -75,13 +84,6 @@ const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
       // If Cookie Settings page
       // handle form state based on cookie_policy value / settings
       if (getCookieForm) {
-        let measureRadioInput = document.querySelector(
-          Data.form.analytics.measure
-        );
-        let doNotMeasureRadioInput = document.querySelector(
-          Data.form.analytics.doNotMeasure
-        );
-
         // Update the state on the form radio elements
         // based on the cookie_policy value
         if (
