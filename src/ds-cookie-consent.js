@@ -35,8 +35,8 @@ const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
     }
   }
 
-  // Hide the banner from the cookie settings page
   if (getCookieForm) {
+    // Hide the banner from the cookie settings page
     if (getBannerElement) {
       getBannerElement.remove();
     }
@@ -70,6 +70,29 @@ const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
         Data.cookies.gaCookies.forEach((cookie) => {
           dsCookieConsentBannerAPI.deleteCookie(cookie);
         });
+      }
+
+      // If Cookie Settings page
+      // handle form state based on cookie_policy value / settings
+      if (getCookieForm) {
+        let measureRadioInput = document.querySelector(
+          Data.form.analytics.measure
+        );
+        let doNotMeasureRadioInput = document.querySelector(
+          Data.form.analytics.doNotMeasure
+        );
+
+        // Update the state on the form radio elements
+        // based on the cookie_policy value
+        if (
+          getCookieObject.hasOwnProperty("usage") &&
+          getCookieObject.usage === true &&
+          !measureRadioInput.checked
+        ) {
+          measureRadioInput.checked = true;
+        } else {
+          doNotMeasureRadioInput.checked = true;
+        }
       }
     }
   });
