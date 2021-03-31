@@ -3,6 +3,9 @@ import dsCookieConsentBannerAPI from "./api/dsCookieConsentBannerAPI";
 
 const getBannerElement = document.querySelector(Data.bannerWrapper.id);
 const getCookieForm = document.querySelector(Data.formWrapper.id);
+const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
+  Data.cookies.cookieTwo
+);
 
 // Polyfill the remove() method IE9 and higher
 // from:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
@@ -21,6 +24,56 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
     });
   });
 })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
+// Treat DOM elements while the page is loading
+(function () {
+  // If the cookie dontShowCookieNotice exists
+  // Hide the banner if visible
+  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
+
+  // Hide the banner from the cookie settings page
+  if (getCookieForm) {
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
+})();
+
+// Create/delete cookies on page load
+(function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+      const cookieValue = {
+        usage: false,
+        settings: false,
+        essential: true,
+      };
+
+      dsCookieConsentBannerAPI.setCookie(
+        Data.cookies.cookieTwo,
+        JSON.stringify(cookieValue)
+      );
+
+      // Delete GA cookies if cookies_policy cookie value is set to false
+      Data.cookies.gaCookies.forEach((cookie) => {
+        dsCookieConsentBannerAPI.deleteCookie(cookie);
+      });
+    } else {
+      if (
+        getCookieObject.hasOwnProperty("usage") &&
+        getCookieObject.usage === false
+      ) {
+        Data.cookies.gaCookies.forEach((cookie) => {
+          dsCookieConsentBannerAPI.deleteCookie(cookie);
+        });
+      }
+    }
+  });
+})();
 
 // Banner DOM implementation
 (function () {
@@ -44,18 +97,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
     // Hide the old yellow Cookie banner for the MVP
     if (oldCookieNotice) {
       oldCookieNotice.remove();
-    }
-
-    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
-      const cookieValue = {
-        usage: false,
-        settings: false,
-        essential: true,
-      };
-      dsCookieConsentBannerAPI.setCookie(
-        Data.cookies.cookieTwo,
-        JSON.stringify(cookieValue)
-      );
     }
 
     // Check if cookie banner exists
@@ -258,19 +299,4 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       }
     }
   });
-
-  // If the cookie dontShowCookieNotice exists
-  // Hide the banner if visible
-  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
-    if (getBannerElement) {
-      getBannerElement.remove();
-    }
-  }
-
-  // Hide the banner from the cookie settings page
-  if (getCookieForm) {
-    if (getBannerElement) {
-      getBannerElement.remove();
-    }
-  }
 })();
