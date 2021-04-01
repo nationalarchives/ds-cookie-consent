@@ -64,6 +64,12 @@ const Data = {
     on: ".jsON",
     off: ".jsOFF",
   },
+  form: {
+    analytics: {
+      measure: "#measure_website_use",
+      doNotMeasure: "#donot_measure_website_use",
+    },
+  },
 };
 
 export default Data;
