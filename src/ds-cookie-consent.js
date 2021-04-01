@@ -64,7 +64,10 @@ let doNotMeasureRadioInput = document.querySelector(
 
       dsCookieConsentBannerAPI.setCookie(
         Data.cookies.cookieTwo,
-        JSON.stringify(cookieValue)
+        JSON.stringify(cookieValue),
+        {
+          "max-age": 90 * 24 * 60 * 60,
+        }
       );
 
       // Delete GA cookies if cookies_policy cookie value is set to false
@@ -161,7 +164,7 @@ let doNotMeasureRadioInput = document.querySelector(
 
           // Create dontShowCookieNotice cookie
           dsCookieConsentBannerAPI.setCookie(Data.cookies.cookieOne, "true", {
-            "max-age": 3600,
+            "max-age": 90 * 24 * 60 * 60,
           });
 
           // Create/Update cookies_policy cookie
@@ -169,7 +172,7 @@ let doNotMeasureRadioInput = document.querySelector(
             Data.cookies.cookieTwo,
             '{"usage":true,"settings":true,"essential":true}',
             {
-              "max-age": 3600,
+              "max-age": 90 * 24 * 60 * 60,
             }
           );
 
@@ -243,7 +246,7 @@ let doNotMeasureRadioInput = document.querySelector(
 
           // Create dontShowCookieNotice cookie
           dsCookieConsentBannerAPI.setCookie(Data.cookies.cookieOne, "true", {
-            "max-age": 3600,
+            "max-age": 90 * 24 * 60 * 60,
           });
 
           // Create/Update cookies_policy cookie
@@ -251,7 +254,7 @@ let doNotMeasureRadioInput = document.querySelector(
             Data.cookies.cookieTwo,
             '{"usage":false,"settings":false,"essential":true}',
             {
-              "max-age": 3600,
+              "max-age": 90 * 24 * 60 * 60,
             }
           );
 
