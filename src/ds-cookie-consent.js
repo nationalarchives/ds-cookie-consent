@@ -29,29 +29,6 @@ let doNotMeasureRadioInput = document.querySelector(
   });
 })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
 
-// Treat DOM elements while the page is loading
-(function () {
-  // If the cookie dontShowCookieNotice exists
-  // Hide the banner if visible
-  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
-    if (getBannerElement) {
-      getBannerElement.remove();
-    }
-  }
-
-  if (getCookieForm) {
-    // Update the state on the form radio elements
-    // based on the cookie_policy value
-    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
-      // Hide the banner if visible
-      if (getBannerElement) {
-        getBannerElement.remove();
-      }
-      doNotMeasureRadioInput.checked = true;
-    }
-  }
-})();
-
 // Create/delete cookies on page load
 (function () {
   document.addEventListener("DOMContentLoaded", () => {
@@ -327,4 +304,31 @@ let doNotMeasureRadioInput = document.querySelector(
       }
     }
   });
+})();
+
+// Treat DOM elements while the page is loading
+(function () {
+  // If the cookie dontShowCookieNotice exists
+  // Hide the banner if visible
+  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
+
+  if (getCookieForm) {
+    // Update the state on the form radio elements
+    // based on the cookie_policy value
+    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+      // Hide the banner if visible
+      if (getBannerElement) {
+        getBannerElement.remove();
+      }
+      doNotMeasureRadioInput.checked = true;
+    }
+
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
 })();
