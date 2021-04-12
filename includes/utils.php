@@ -41,3 +41,11 @@ function add_type_attribute($tag, $handle, $src) {
     $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
     return $tag;
 }
+
+/*
+ * Tell WP Super Cache to cache requests with the cookie "cookies_policy" and "dontShowCookieNotice" 
+ */
+ function add_wpsc_cookie_banner() {
+    do_action( 'wpsc_add_cookie', 'cookies_policy' );
+    do_action( 'wpsc_add_cookie', 'dontShowCookieNotice' );
+}

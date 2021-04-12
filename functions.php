@@ -18,12 +18,14 @@ function wpse_load_plugin_scripts() {
     wp_localize_script( 'ds-cookie-consent-js', 'object_name', $translation_array );
 }
 
+// WP SUper Cache
+add_action( 'init', 'add_wpsc_cookie_banner' );
+
 // Enqueue JS and CSS
 add_action( 'wp_enqueue_scripts', 'wpse_load_plugin_scripts' );
 // Enable shortcode for the Cookie Settings 
 add_shortcode( 'ds-cookie-consent-settings', 'shortcode_settings_page' );
-// Add type="module" to the script tag
-// add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
+
 
 if (!isset($_COOKIE['dontShowCookieNotice'])) {
     add_action('wp_cookie_banner_hook', 'cookie_banner');
