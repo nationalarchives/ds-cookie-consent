@@ -41,5 +41,6 @@
 This plugin extends WP Super Cache plugin capabilities to allow the use of `cookies_policy` & `dontShowCookieNotice` cookies and avoid the cache issues
 
 ## Cookie flow
-![cookies_policy](https://user-images.githubusercontent.com/5245264/115372663-0a64b980-a1c3-11eb-9ef7-e81ac4cda026.png)
+![cookies_policy](https://user-images.githubusercontent.com/5245264/115374112-70057580-a1c4-11eb-9188-cf497a3d84fa.png)
+
 
