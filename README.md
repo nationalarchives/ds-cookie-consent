@@ -7,7 +7,7 @@
 
 ## Create Cookies Settings page
 
-[ds-cookie-consent-settings]
+- Add shortcode [ds-cookie-consent-settings] to the website
 
 - Content for the cookie sections ca be added from TNA Cookie Consent dashboard settings page
 
