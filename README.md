@@ -1,6 +1,6 @@
 # Cookie banner consent Wordpress plugin
 
-- [Project findings](https://github.com/nationalarchives/ds-cookie-consent/blob/main/docs/about-the-project.md)
+- [Project findings](https://github.com/nationalarchives/ds-cookie-consent/blob/mihai/wp_plugin/docs/about-the-project.md)
 
 ## Installation
 - Upload, install and activate the plugin
