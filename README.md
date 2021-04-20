@@ -43,4 +43,34 @@ This plugin extends WP Super Cache plugin capabilities to allow the use of `cook
 ## Cookie flow
 ![cookies_policy](https://user-images.githubusercontent.com/5245264/115374112-70057580-a1c4-11eb-9188-cf497a3d84fa.png)
 
+### Development machine configuration
+
+**Download the repository.**
+
+  Get the latest files from the repository
+
+  ```sh
+  # Download the project on your development machine on your preferred location
+  git clone https://github.com/nationalarchives/ds-cookie-consent/mihai/wp_plugin
+  ```
+
+**Start developing.**
+
+  Navigate into the project’s directory and start it up.
+
+  ```sh
+  cd ds-cookie-consent
+  npm install
+  npm run dev
+  ```
+  
+  Optional: Change the development mode to `development` inside webpack.config.js file and revert back to `production` when ready to deploy
+
+#### Core technologies
+
+This repository uses a number of technologies, including: 
+* [Babel](https://babeljs.io) 
+* [Webpack](https://webpack.js.org)
+* [Travis CI](https://travis-ci.org/) 
+
 
