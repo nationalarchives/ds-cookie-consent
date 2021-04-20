@@ -51,7 +51,7 @@ This plugin extends WP Super Cache plugin capabilities to allow the use of `cook
 
   ```sh
   # Download the project on your development machine on your preferred location
-  git clone https://github.com/nationalarchives/ds-cookie-consent/mihai/wp_plugin
+  git clone https://github.com/nationalarchives/ds-cookie-consent
   ```
 
 **Start developing.**
