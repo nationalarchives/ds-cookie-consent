@@ -1,4 +1,4 @@
-# The National Archivs cookie banner consent Wordpress plugin
+# The National Archives cookie banner consent Wordpress plugin
 
 - [Project findings](https://github.com/nationalarchives/ds-cookie-consent/blob/main/docs/about-the-project.md)
 
