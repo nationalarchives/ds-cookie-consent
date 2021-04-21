@@ -36,6 +36,7 @@ const Data = {
   cookies: {
     cookieOne: "dontShowCookieNotice",
     cookieTwo: "cookies_policy",
+    gaCookies: ["_ga", "_gid", "_gat_UA-2827241-22", "_gat_UA-2827241-1"],
   },
   formWrapper: {
     id: "#ds-cookie-consent-form",
@@ -62,6 +63,12 @@ const Data = {
   DOM: {
     on: ".jsON",
     off: ".jsOFF",
+  },
+  form: {
+    analytics: {
+      measure: "#measure_website_use",
+      doNotMeasure: "#donot_measure_website_use",
+    },
   },
 };
 

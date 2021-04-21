@@ -70,6 +70,29 @@ const dsCookieConsentBannerAPI = (() => {
     }
   }
 
+  // Get cookie value
+  // If cookies_policy get its value, decode it, parse it and return an object
+  // For any other cookies return its value as a string
+  function getCookieValue(cname) {
+    let cookies = document.cookie.split(";");
+    let cookieValue = "";
+
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i];
+      let equalSignPos = cookie.indexOf("=");
+      let cookieValue = cookie.slice(equalSignPos + 1);
+      let cookieName =
+        equalSignPos > -1 ? cookie.substr(0, equalSignPos).trim() : cookie;
+
+      if (cookieName === cname) {
+        cookieValue = decodeURIComponent(cookieValue);
+        const parseCookieValue = JSON.parse(cookieValue);
+        return parseCookieValue;
+      }
+    }
+    return cookieValue;
+  }
+
   // Create link element inside the banner
   function createButton(text, id, className, tabindex) {
     const getInnerElem = document.querySelector(Data.buttonPreferences.id);
@@ -93,6 +116,7 @@ const dsCookieConsentBannerAPI = (() => {
     setCookie,
     checkCookie,
     deleteCookie,
+    getCookieValue,
   };
 })();
 

@@ -3,6 +3,13 @@ import dsCookieConsentBannerAPI from "./api/dsCookieConsentBannerAPI";
 
 const getBannerElement = document.querySelector(Data.bannerWrapper.id);
 const getCookieForm = document.querySelector(Data.formWrapper.id);
+const getCookieObject = dsCookieConsentBannerAPI.getCookieValue(
+  Data.cookies.cookieTwo
+);
+let measureRadioInput = document.querySelector(Data.form.analytics.measure);
+let doNotMeasureRadioInput = document.querySelector(
+  Data.form.analytics.doNotMeasure
+);
 
 // Polyfill the remove() method IE9 and higher
 // from:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
@@ -21,6 +28,84 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
     });
   });
 })([Element.prototype, CharacterData.prototype, DocumentType.prototype]);
+
+// Treat DOM elements while the page is loading
+(function () {
+  // If the cookie dontShowCookieNotice exists
+  // Hide the banner if visible
+  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
+
+  if (getCookieForm) {
+    // Update the state on the form radio elements
+    // based on the cookie_policy value
+    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+      // Hide the banner if visible
+      if (getBannerElement) {
+        getBannerElement.remove();
+      }
+      doNotMeasureRadioInput.checked = true;
+    }
+
+    if (getBannerElement) {
+      getBannerElement.remove();
+    }
+  }
+})();
+
+// Create/delete cookies on page load
+(function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+      const cookieValue = {
+        usage: false,
+        settings: false,
+        essential: true,
+      };
+
+      dsCookieConsentBannerAPI.setCookie(
+        Data.cookies.cookieTwo,
+        JSON.stringify(cookieValue),
+        {
+          "max-age": 90 * 24 * 60 * 60,
+        }
+      );
+
+      // Delete GA cookies if cookies_policy cookie value is set to false
+      Data.cookies.gaCookies.forEach((cookie) => {
+        dsCookieConsentBannerAPI.deleteCookie(cookie);
+      });
+    } else {
+      if (
+        getCookieObject.hasOwnProperty("usage") &&
+        getCookieObject.usage === false
+      ) {
+        Data.cookies.gaCookies.forEach((cookie) => {
+          dsCookieConsentBannerAPI.deleteCookie(cookie);
+        });
+      }
+
+      // If Cookie Settings page
+      // handle form state based on cookie_policy value / settings
+      if (getCookieForm) {
+        // Update the state on the form radio elements
+        // based on the cookie_policy value
+        if (
+          getCookieObject.hasOwnProperty("usage") &&
+          getCookieObject.usage === true &&
+          !measureRadioInput.checked
+        ) {
+          measureRadioInput.checked = true;
+        } else {
+          doNotMeasureRadioInput.checked = true;
+        }
+      }
+    }
+  });
+})();
 
 // Banner DOM implementation
 (function () {
@@ -44,18 +129,6 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
     // Hide the old yellow Cookie banner for the MVP
     if (oldCookieNotice) {
       oldCookieNotice.remove();
-    }
-
-    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
-      const cookieValue = {
-        usage: false,
-        settings: false,
-        essential: true,
-      };
-      dsCookieConsentBannerAPI.setCookie(
-        Data.cookies.cookieTwo,
-        JSON.stringify(cookieValue)
-      );
     }
 
     // Check if cookie banner exists
@@ -95,7 +168,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
 
           // Create dontShowCookieNotice cookie
           dsCookieConsentBannerAPI.setCookie(Data.cookies.cookieOne, "true", {
-            "max-age": 3600,
+            "max-age": 90 * 24 * 60 * 60,
           });
 
           // Create/Update cookies_policy cookie
@@ -103,7 +176,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             Data.cookies.cookieTwo,
             '{"usage":true,"settings":true,"essential":true}',
             {
-              "max-age": 3600,
+              "max-age": 90 * 24 * 60 * 60,
             }
           );
 
@@ -177,7 +250,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
 
           // Create dontShowCookieNotice cookie
           dsCookieConsentBannerAPI.setCookie(Data.cookies.cookieOne, "true", {
-            "max-age": 3600,
+            "max-age": 90 * 24 * 60 * 60,
           });
 
           // Create/Update cookies_policy cookie
@@ -185,7 +258,7 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
             Data.cookies.cookieTwo,
             '{"usage":false,"settings":false,"essential":true}',
             {
-              "max-age": 3600,
+              "max-age": 90 * 24 * 60 * 60,
             }
           );
 
@@ -258,19 +331,4 @@ const getCookieForm = document.querySelector(Data.formWrapper.id);
       }
     }
   });
-
-  // If the cookie dontShowCookieNotice exists
-  // Hide the banner if visible
-  if (dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieOne)) {
-    if (getBannerElement) {
-      getBannerElement.remove();
-    }
-  }
-
-  // Hide the banner from the cookie settings page
-  if (getCookieForm) {
-    if (getBannerElement) {
-      getBannerElement.remove();
-    }
-  }
 })();
