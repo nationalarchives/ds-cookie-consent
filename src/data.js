@@ -1,14 +1,14 @@
 // Typed data
 const Data = {
   buttonAccept: {
-    text: "Accept optional cookies",
+    text: "Accept cookies",
     url: "#",
     id: "accept_optional_cookies",
     class: "button",
     tabIndex: 1,
   },
   buttonReject: {
-    text: "Reject optional cookies",
+    text: "Reject cookies",
     url: "#",
     id: "reject_optional_cookies",
     class: "button",
