@@ -7,8 +7,8 @@ const dsCookieConsentBannerAPI = (() => {
     let cookies = document.cookie.split(";");
     for (let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
-      let eqPos = cookie.indexOf("=");
-      let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      let eqPos  = cookie.indexOf("=");
+      let name   = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
 
       cname.forEach((c) => {
         if (name.trim() === c) {
@@ -54,19 +54,18 @@ const dsCookieConsentBannerAPI = (() => {
   }
 
   // Create link element inside the banner
-  function createLink(text, url, id, className, tabindex) {
+  function createLink(text, url, id, className) {
     const getInnerElem = document.querySelector(Data.buttonPreferences.id);
-    const createLink = document.createElement("a");
-    const linkText = document.createTextNode(text);
+    const createUrl   = document.createElement("a");
+    const linkText     = document.createTextNode(text);
 
     if (getInnerElem) {
       const parentElement = getInnerElem.parentNode;
-      createLink.appendChild(linkText);
-      createLink.href = url;
-      createLink.className = className;
-      createLink.id = id;
-      createLink.tabIndex = tabindex;
-      parentElement.insertBefore(createLink, getInnerElem);
+      createUrl.appendChild(linkText);
+      createUrl.href      = url;
+      createUrl.className = className;
+      createUrl.id        = id;
+      parentElement.insertBefore(createUrl, getInnerElem);
     }
   }
 
@@ -74,15 +73,15 @@ const dsCookieConsentBannerAPI = (() => {
   // If cookies_policy get its value, decode it, parse it and return an object
   // For any other cookies return its value as a string
   function getCookieValue(cname) {
-    let cookies = document.cookie.split(";");
+    let cookies     = document.cookie.split(";");
     let cookieValue = "";
 
     for (let i = 0; i < cookies.length; i++) {
-      let cookie = cookies[i];
+      let cookie       = cookies[i];
       let equalSignPos = cookie.indexOf("=");
-      let cookieValue = cookie.slice(equalSignPos + 1);
-      let cookieName =
-        equalSignPos > -1 ? cookie.substr(0, equalSignPos).trim() : cookie;
+          cookieValue  = cookie.slice(equalSignPos + 1);
+      let cookieName   = 
+        equalSignPos > -1 ? cookie.substr(0, equalSignPos).trim(): cookie;
 
       if (cookieName === cname) {
         cookieValue = decodeURIComponent(cookieValue);
@@ -94,18 +93,17 @@ const dsCookieConsentBannerAPI = (() => {
   }
 
   // Create link element inside the banner
-  function createButton(text, id, className, tabindex) {
+  function createButton(text, id, className) {
     const getInnerElem = document.querySelector(Data.buttonPreferences.id);
-    const createButton = document.createElement("button");
-    const linkText = document.createTextNode(text);
+    const createBtn    = document.createElement("button");
+    const linkText     = document.createTextNode(text);
 
     if (getInnerElem) {
       const parentElement = getInnerElem.parentNode;
-      createButton.appendChild(linkText);
-      createButton.className = className;
-      createButton.id = id;
-      createButton.tabIndex = tabindex;
-      parentElement.insertBefore(createButton, getInnerElem);
+      createBtn.appendChild(linkText);
+      createBtn.className = className;
+      createBtn.id        = id;
+      parentElement.insertBefore(createBtn, getInnerElem);
     }
   }
 
