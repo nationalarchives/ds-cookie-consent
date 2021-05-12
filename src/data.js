@@ -5,21 +5,18 @@ const Data = {
     url: "#",
     id: "accept_optional_cookies",
     class: "button",
-    tabIndex: 1,
   },
   buttonReject: {
     text: "Reject cookies",
     url: "#",
     id: "reject_optional_cookies",
     class: "button",
-    tabIndex: 1,
   },
   hideThisMessage: {
     text: "Hide this message",
     url: "#",
     id: "hide_this_message",
     class: "button",
-    tabIndex: 1,
   },
   buttonPreferences: {
     id: "#btn_preferences",
@@ -43,12 +40,12 @@ const Data = {
   },
   acceptMessageAfterInteraction: {
     text:
-      "You have accepted optional cookies. You can change your cookie settings on the <a href='/latin/cookies/' tabindex='1'>Cookies page</a>.",
+      "You have accepted optional cookies. You can change your cookie settings on the <a href='/latin/cookies/'>Cookies page</a>.",
     ariaLabel: "Cookie consent confirmation message",
   },
   rejectMessageAfterInteraction: {
     text:
-      "You have rejected optional cookies. You can change your cookie settings on the <a href='/latin/cookies/' tabindex='1'>Cookies page</a>.",
+      "You have rejected optional cookies. You can change your cookie settings on the <a href='/latin/cookies/'>Cookies page</a>.",
     ariaLabel: "Cookie consent confirmation message",
   },
   oldCookieBannerWrapper: {
