@@ -138,7 +138,6 @@ let doNotMeasureRadioInput = document.querySelector(
         Data.buttonAccept.text,
         Data.buttonAccept.id,
         Data.buttonAccept.class,
-        Data.buttonAccept.tabIndex
       );
 
       // Create Reject Optional Cookies
@@ -146,7 +145,6 @@ let doNotMeasureRadioInput = document.querySelector(
         Data.buttonReject.text,
         Data.buttonReject.id,
         Data.buttonReject.class,
-        Data.buttonReject.tabIndex
       );
 
       // Select the buttons
@@ -184,7 +182,6 @@ let doNotMeasureRadioInput = document.querySelector(
             Data.hideThisMessage.text,
             Data.hideThisMessage.id,
             Data.hideThisMessage.class,
-            Data.hideThisMessage.tabIndex
           );
 
           if (btnAccept) {
@@ -266,7 +263,6 @@ let doNotMeasureRadioInput = document.querySelector(
             Data.hideThisMessage.text,
             Data.hideThisMessage.id,
             Data.hideThisMessage.class,
-            Data.hideThisMessage.tabIndex
           );
 
           if (btnAccept) {
