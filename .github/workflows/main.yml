@@ -25,3 +25,4 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_USERNAME: ds-cookie-consent
+        SLACK_ICON: https://github.com/nationalarchives.png?size=48
