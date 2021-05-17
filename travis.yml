@@ -1,17 +1,7 @@
-cache: 
-  directories: 
-    - ~/.cache
-  npm: true
-install: 
-  - "npm ci"
-language: 
-  - node_js
-node_js: 
-  - "10"
-notifications: 
-  slack: 
-    rooms: 
-      - "tna-digital:C2GnodnLsxhwwGvr0xAcajzc#code-builds"
-script: 
-  - "npm run build"
-  - "$(npm bin)/cypress run"
+language: node_js
+node_js:
+  - "stable"
+before_script:
+  - npm install
+script:
+  - npm test
