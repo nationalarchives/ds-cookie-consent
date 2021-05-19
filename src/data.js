@@ -40,12 +40,12 @@ const Data = {
   },
   acceptMessageAfterInteraction: {
     text:
-      "You have accepted optional cookies. You can change your cookie settings on the <a href='/latin/cookies/'>Cookies page</a>.",
+      "You have accepted optional cookies. You can change your cookie settings on the <a href='https://www.nationalarchives.gov.uk/latin/cookies/'>Cookies page</a>.",
     ariaLabel: "Cookie consent confirmation message",
   },
   rejectMessageAfterInteraction: {
     text:
-      "You have rejected optional cookies. You can change your cookie settings on the <a href='/latin/cookies/'>Cookies page</a>.",
+      "You have rejected optional cookies. You can change your cookie settings on the <a href='https://www.nationalarchives.gov.uk/latin/cookies/'>Cookies page</a>.",
     ariaLabel: "Cookie consent confirmation message",
   },
   oldCookieBannerWrapper: {

@@ -26,7 +26,7 @@ function cookie_banner() {
                     We\'d like to use additional cookies to remember your settings and understand how you use our services. <br><br>
                     This information will help us make improvements to the website.
                 </p>
-                <a href="/latin/cookies/" id="btn_preferences" class="button">Set cookie preferences</a>
+                <a href="https://www.nationalarchives.gov.uk/latin/cookies/" id="btn_preferences" class="button">Set cookie preferences</a>
             </div>
         </div>
      </div>');
