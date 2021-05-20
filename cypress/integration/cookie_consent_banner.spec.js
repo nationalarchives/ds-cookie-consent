@@ -104,7 +104,7 @@ context('Cookies Consent Banner', () => {
     beforeEach(() => {
       Cypress.Cookies.debug(true)
   
-      cy.visit('https://nationalarchives.gov.uk/latin/cookies')
+      cy.visit('https://www.nationalarchives.gov.uk/latin/cookies')
   
       // clear cookies again after visiting to remove
       // any 3rd party cookies picked up such as cloudflare
