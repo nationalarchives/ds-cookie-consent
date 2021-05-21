@@ -93,7 +93,7 @@ context('Cookies Consent Banner', () => {
             .click()
 
         cy.url()
-            .should('eq', 'https://nationalarchives.gov.uk/latin/cookies/')
+            .should('eq', 'https://www.nationalarchives.gov.uk/latin/cookies/')
 
         cy.get('#ds-cookie-consent-banner > .container')
             .should('not.exist')

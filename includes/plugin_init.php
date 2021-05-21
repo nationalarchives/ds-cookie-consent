@@ -1,6 +1,7 @@
 <?php
 require_once plugin_dir_path(__FILE__) . '../functions.php';
 
+$main_domain = 'nationalarchives.gov.uk';
 $cookie_consent_plugin_options =  new Ds_Cookie_Consent_Fields_Admin_Options();
 $manage_acceptable_group_cookie_list = new Manage_Acceptable_Group_Cookie_List(
     array(
@@ -10,10 +11,9 @@ $manage_acceptable_group_cookie_list = new Manage_Acceptable_Group_Cookie_List(
     )
 );
 
-
 if(!isset($_COOKIE['cookies_policy'])) {
     $cookie_group_list_to_json = json_encode( $manage_acceptable_group_cookie_list );
-    setcookie('cookies_policy', $cookie_group_list_to_json, time()+31556926  ,'/');
+    setcookie('cookies_policy', $cookie_group_list_to_json, time()+60*60*24*90  ,'/', $main_domain, true);
     /** 
     * Call $_COOKIE directly after was set so it can be accessed 
     * without having to reload or navigate to a different page 
@@ -23,7 +23,7 @@ if(!isset($_COOKIE['cookies_policy'])) {
 
 if(isset( $_POST['submit'] )) {
 
-    setcookie('dontShowCookieNotice',  'true', time()+31556926  ,'/');
+    setcookie('dontShowCookieNotice',  'true', time()+60*60*24*90  ,'/', $main_domain, true);
     /** 
         * Call $_COOKIE directly after was set so it can be accessed 
         * without having to reload or navigate to a different page 
@@ -47,7 +47,7 @@ if(isset( $_POST['submit'] )) {
 
         $updated_cookie_group_list_to_json = wp_json_encode( $cookies_policy_to_obj );
         
-        setcookie('cookies_policy',  $updated_cookie_group_list_to_json, time()+31556926  ,'/');
+        setcookie('cookies_policy',  $updated_cookie_group_list_to_json, time()+60*60*24*90  ,'/', $main_domain, true);
 
         /** 
         * Call $_COOKIE directly after was set so it can be accessed 

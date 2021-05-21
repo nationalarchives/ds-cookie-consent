@@ -234,7 +234,7 @@ let doNotMeasureRadioInput = document.querySelector(
           const gaScript = document.createElement("script");
           gaScript.id = "frontEndGA";
           gaScript.src =
-            "/wp-content/plugins/ds-cookie-consent/dist/gtm-script.js";
+            "https://nationalarchives.gov.uk/wp-content/plugins/ds-cookie-consent/dist/gtm-script.js";
           DOMhead.appendChild(gaScript);
         });
       }
