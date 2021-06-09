@@ -66,13 +66,13 @@ let doNotMeasureRadioInput = document.querySelector(
         essential: true,
       };
 
-      dsCookieConsentBannerAPI.setCookie(
-        Data.cookies.cookieTwo,
-        JSON.stringify(cookieValue),
-        {
-          "max-age": 90 * 24 * 60 * 60,
-        }
-      );
+      // dsCookieConsentBannerAPI.setCookie(
+      //   Data.cookies.cookieTwo,
+      //   JSON.stringify(cookieValue),
+      //   {
+      //     "max-age": 90 * 24 * 60 * 60,
+      //   }
+      // );
 
       // Delete GA cookies if cookies_policy cookie value is set to false
       Data.cookies.gaCookies.forEach((cookie) => {
