@@ -170,13 +170,13 @@ let doNotMeasureRadioInput = document.querySelector(
           });
 
           // Create/Update cookies_policy cookie
-          dsCookieConsentBannerAPI.setCookie(
-            Data.cookies.cookieTwo,
-            '{"usage":true,"settings":true,"essential":true}',
-            {
-              "max-age": 90 * 24 * 60 * 60,
-            }
-          );
+          // dsCookieConsentBannerAPI.setCookie(
+          //   Data.cookies.cookieTwo,
+          //   '{"usage":true,"settings":true,"essential":true}',
+          //   {
+          //     "max-age": 90 * 24 * 60 * 60,
+          //   }
+          // );
 
           dsCookieConsentBannerAPI.createButton(
             Data.hideThisMessage.text,
@@ -251,13 +251,13 @@ let doNotMeasureRadioInput = document.querySelector(
           });
 
           // Create/Update cookies_policy cookie
-          dsCookieConsentBannerAPI.setCookie(
-            Data.cookies.cookieTwo,
-            '{"usage":false,"settings":false,"essential":true}',
-            {
-              "max-age": 90 * 24 * 60 * 60,
-            }
-          );
+          // dsCookieConsentBannerAPI.setCookie(
+          //   Data.cookies.cookieTwo,
+          //   '{"usage":false,"settings":false,"essential":true}',
+          //   {
+          //     "max-age": 90 * 24 * 60 * 60,
+          //   }
+          // );
 
           dsCookieConsentBannerAPI.createButton(
             Data.hideThisMessage.text,
