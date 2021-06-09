@@ -11,6 +11,9 @@ let doNotMeasureRadioInput = document.querySelector(
   Data.form.analytics.doNotMeasure
 );
 
+console.log("I'm visible!");
+
+
 // Polyfill the remove() method IE9 and higher
 // from:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
 (function (arr) {
@@ -116,7 +119,6 @@ let doNotMeasureRadioInput = document.querySelector(
     const jsON = document.querySelector(Data.DOM.on);
     const jsOFF = document.querySelector(Data.DOM.off);
     
-    console.log("I'm visible!");
     
     // Display form elements if JS is enable
     if (jsON) {
