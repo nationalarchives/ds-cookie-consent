@@ -57,55 +57,55 @@ let doNotMeasureRadioInput = document.querySelector(
 })();
 
 // Create/delete cookies on page load
-(function () {
-  document.addEventListener("DOMContentLoaded", () => {
-    if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
-      const cookieValue = {
-        usage: false,
-        settings: false,
-        essential: true,
-      };
+// (function () {
+//   document.addEventListener("DOMContentLoaded", () => {
+//     if (!dsCookieConsentBannerAPI.checkCookie(Data.cookies.cookieTwo)) {
+//       const cookieValue = {
+//         usage: false,
+//         settings: false,
+//         essential: true,
+//       };
 
-      // dsCookieConsentBannerAPI.setCookie(
-      //   Data.cookies.cookieTwo,
-      //   JSON.stringify(cookieValue),
-      //   {
-      //     "max-age": 90 * 24 * 60 * 60,
-      //   }
-      // );
+//       dsCookieConsentBannerAPI.setCookie(
+//         Data.cookies.cookieTwo,
+//         JSON.stringify(cookieValue),
+//         {
+//           "max-age": 90 * 24 * 60 * 60,
+//         }
+//       );
 
-      // Delete GA cookies if cookies_policy cookie value is set to false
-      Data.cookies.gaCookies.forEach((cookie) => {
-        dsCookieConsentBannerAPI.deleteCookie(cookie);
-      });
-    } else {
-      if (
-        getCookieObject.hasOwnProperty("usage") &&
-        getCookieObject.usage === false
-      ) {
-        Data.cookies.gaCookies.forEach((cookie) => {
-          dsCookieConsentBannerAPI.deleteCookie(cookie);
-        });
-      }
+//       // Delete GA cookies if cookies_policy cookie value is set to false
+//       Data.cookies.gaCookies.forEach((cookie) => {
+//         dsCookieConsentBannerAPI.deleteCookie(cookie);
+//       });
+//     } else {
+//       if (
+//         getCookieObject.hasOwnProperty("usage") &&
+//         getCookieObject.usage === false
+//       ) {
+//         Data.cookies.gaCookies.forEach((cookie) => {
+//           dsCookieConsentBannerAPI.deleteCookie(cookie);
+//         });
+//       }
 
-      // If Cookie Settings page
-      // handle form state based on cookie_policy value / settings
-      if (getCookieForm) {
-        // Update the state on the form radio elements
-        // based on the cookie_policy value
-        if (
-          getCookieObject.hasOwnProperty("usage") &&
-          getCookieObject.usage === true &&
-          !measureRadioInput.checked
-        ) {
-          measureRadioInput.checked = true;
-        } else {
-          doNotMeasureRadioInput.checked = true;
-        }
-      }
-    }
-  });
-})();
+//       // If Cookie Settings page
+//       // handle form state based on cookie_policy value / settings
+//       if (getCookieForm) {
+//         // Update the state on the form radio elements
+//         // based on the cookie_policy value
+//         if (
+//           getCookieObject.hasOwnProperty("usage") &&
+//           getCookieObject.usage === true &&
+//           !measureRadioInput.checked
+//         ) {
+//           measureRadioInput.checked = true;
+//         } else {
+//           doNotMeasureRadioInput.checked = true;
+//         }
+//       }
+//     }
+//   });
+// })();
 
 // Banner DOM implementation
 (function () {
