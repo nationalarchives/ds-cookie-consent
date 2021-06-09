@@ -115,7 +115,9 @@ let doNotMeasureRadioInput = document.querySelector(
     );
     const jsON = document.querySelector(Data.DOM.on);
     const jsOFF = document.querySelector(Data.DOM.off);
-
+    
+    console.log("I'm visible!");
+    
     // Display form elements if JS is enable
     if (jsON) {
       jsON.style.display = "block";
