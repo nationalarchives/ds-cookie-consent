@@ -27,7 +27,7 @@ const dsCookieConsentBannerAPI = (() => {
   function setCookie(name, value, options) {
     options = {
       path: "/",
-      domain: "localhost",
+      domain: "nationalarchives.gov.uk",
       secure: true,
       ...options,
     };
