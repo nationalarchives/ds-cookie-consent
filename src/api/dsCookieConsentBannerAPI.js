@@ -86,7 +86,8 @@ const dsCookieConsentBannerAPI = (() => {
         equalSignPos > -1 ? cookie.substr(0, equalSignPos).trim(): cookie;
 
       if (cookieName === cname) {
-        return cookieValue;
+        cookieValue = decodeURIComponent(cookieValue);
+        return JSON.parse(cookieValue);
       }
     }
     return cookieValue;
