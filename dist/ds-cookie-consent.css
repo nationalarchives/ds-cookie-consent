@@ -131,6 +131,11 @@
     display: block;
   }
 }
+@media (max-width: 560px) {
+  #ds-cookie-consent-banner .container {
+    padding: 10px 30px 25px 30px;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .cookie-consent-table tr td:first-of-type {

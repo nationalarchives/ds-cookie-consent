@@ -118,6 +118,9 @@
         display: block;
       }
     }
+    @media (max-width: 560px) {
+      padding: 10px 30px 25px 30px;
+    }
   }
 }
 
