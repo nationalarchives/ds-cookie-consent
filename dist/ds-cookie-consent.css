@@ -103,6 +103,7 @@
 #ds-cookie-consent-banner .container #accept_optional_cookies {
     display: block;
     margin-bottom: 15px;
+    width: 100%;
   }
 }
 #ds-cookie-consent-banner .container #btn_preferences {
