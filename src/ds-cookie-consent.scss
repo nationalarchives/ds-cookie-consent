@@ -26,7 +26,8 @@
   color: #fff;
   .container {
     background: #134571;
-    padding: 10px 40px 25px 40px;
+    padding: 10px 25px 25px 40px;
+    box-sizing: border-box;
     border-radius: 5px;
     .cookie_head {
       font-family: "Roboto Mono";
@@ -75,6 +76,11 @@
       text-decoration: none;
       margin-right: 20px;
       border: 2px solid #fff;
+      font-family: "Roboto Mono",monospace;
+      padding: .5em .9em;
+      display: inline-block;
+      min-width: 24px;
+      text-align: center;
       &:hover,
       &:focus {
         background: #000;
@@ -87,6 +93,7 @@
       @media (max-width: 560px) {
         display: block;
         margin-bottom: 15px;
+        width:100%;
       }
     }
     #btn_preferences {
@@ -110,6 +117,9 @@
       @media (max-width: 560px) {
         display: block;
       }
+    }
+    @media (max-width: 560px) {
+      padding: 10px 30px 25px 30px;
     }
   }
 }

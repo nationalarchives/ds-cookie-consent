@@ -26,7 +26,8 @@
 }
 #ds-cookie-consent-banner .container {
   background: #134571;
-  padding: 10px 40px 25px 40px;
+  padding: 10px 25px 25px 40px;
+  box-sizing: border-box;
   border-radius: 5px;
 }
 #ds-cookie-consent-banner .container .cookie_head {
@@ -76,6 +77,11 @@
   text-decoration: none;
   margin-right: 20px;
   border: 2px solid #fff;
+  font-family: "Roboto Mono", monospace;
+  padding: 0.5em 0.9em;
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
 }
 #ds-cookie-consent-banner .container #hide_this_message:hover, #ds-cookie-consent-banner .container #hide_this_message:focus,
 #ds-cookie-consent-banner .container #reject_optional_cookies:hover,
@@ -97,6 +103,7 @@
 #ds-cookie-consent-banner .container #accept_optional_cookies {
     display: block;
     margin-bottom: 15px;
+    width: 100%;
   }
 }
 #ds-cookie-consent-banner .container #btn_preferences {
@@ -122,6 +129,11 @@
 @media (max-width: 560px) {
   #ds-cookie-consent-banner .container #btn_preferences {
     display: block;
+  }
+}
+@media (max-width: 560px) {
+  #ds-cookie-consent-banner .container {
+    padding: 10px 30px 25px 30px;
   }
 }
 
