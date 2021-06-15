@@ -26,7 +26,8 @@
   color: #fff;
   .container {
     background: #134571;
-    padding: 10px 25px 25px 40px;
+    padding: 10px 25px 25px 30px;
+    box-sizing: border-box;
     border-radius: 5px;
     .cookie_head {
       font-family: "Roboto Mono";
