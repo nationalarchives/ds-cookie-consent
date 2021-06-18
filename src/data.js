@@ -34,6 +34,7 @@ const Data = {
     cookieOne: "dontShowCookieNotice",
     cookieTwo: "cookies_policy",
     gaCookies: ["_ga", "_gid", "_gat_UA-2827241-22", "_gat_UA-2827241-1"],
+    settings: ["dontAutoStartResultsTour"]
   },
   formWrapper: {
     id: "#ds-cookie-consent-form",
@@ -66,6 +67,10 @@ const Data = {
       measure: "#measure_website_use",
       doNotMeasure: "#donot_measure_website_use",
     },
+    settings: {
+      rememberSettings: "#remember_your_settings",
+      doNotRememberSettings: "#donot_remember_your_settings"
+    }
   },
 };
 
