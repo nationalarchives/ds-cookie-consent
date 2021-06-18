@@ -10,6 +10,10 @@ let measureRadioInput = document.querySelector(Data.form.analytics.measure);
 let doNotMeasureRadioInput = document.querySelector(
   Data.form.analytics.doNotMeasure
 );
+let settingsRadioInput = document.querySelector(Data.form.settings.rememberSettings);
+let doNotRememberSettingsRadioInput = document.querySelector(
+  Data.form.settings.doNotRememberSettings
+);
 
 // Polyfill the remove() method IE9 and higher
 // from:https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/remove()/remove().md
@@ -48,6 +52,7 @@ let doNotMeasureRadioInput = document.querySelector(
         getBannerElement.remove();
       }
       doNotMeasureRadioInput.checked = true;
+      doNotRememberSettingsRadioInput.checked = true;
     }
 
     if (getBannerElement) {
@@ -88,6 +93,15 @@ let doNotMeasureRadioInput = document.querySelector(
         });
       }
 
+      if (
+        getCookieObject.hasOwnProperty("settings") &&
+        getCookieObject.settings === false
+      ) {
+        Data.cookies.settings.forEach((cookie) => {
+          dsCookieConsentBannerAPI.deleteCookie(cookie);
+        });
+      }
+
       // If Cookie Settings page
       // handle form state based on cookie_policy value / settings
       if (getCookieForm) {
@@ -101,6 +115,17 @@ let doNotMeasureRadioInput = document.querySelector(
           measureRadioInput.checked = true;
         } else {
           doNotMeasureRadioInput.checked = true;
+        }
+
+        // Remove the functional cookies if the user hasn't consent
+        if (
+          getCookieObject.hasOwnProperty("settings") &&
+          getCookieObject.settings === true &&
+          !settingsRadioInput.checked
+        ) {
+          settingsRadioInput.checked = true;
+        } else {
+          doNotRememberSettingsRadioInput.checked = true;
         }
       }
     }
