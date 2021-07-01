@@ -1,6 +1,6 @@
 {
   "name": "ds-cookie-consent",
-  "version": "1.5",
+  "version": "1.5.2",
   "private": true,
   "scripts": {
     "dev": "concurrently --kill-others \"webpack --watch\" \"sass src/ds-cookie-consent.scss:dist/ds-cookie-consent.css --watch\"",

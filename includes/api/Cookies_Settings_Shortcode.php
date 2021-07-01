@@ -39,11 +39,11 @@ function shortcode_settings_page( $atts ) {
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ? '<br><br>' : '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<div class="form-group">': '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<input type="radio" id="remember_your_settings" name="remember-your-settings" value="yes">' : '';
-    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="remember_your_settings">Use cookies that remember my settings on the site</label><br>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="remember_your_settings">Use cookies that remember my preferences</label><br>' : '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'</div>': '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<div class="form-group">': '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<input type="radio" id="donot_remember_your_settings" name="remember-your-settings" value="no">' : '';
-    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="donot_remember_your_settings">Do not use cookies that remember my settings on the site</label><br>' : '';
+    $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'<label for="donot_remember_your_settings">Do not use cookies that remember my preferences</label><br>' : '';
     $output .= (isset($atts['settings']) && $atts['settings'] == 'show') ?'</div>': '';
     $output .= '<h2>' . get_option('our_third_field_headline') . '</h2>';
     $output .= get_option('our_third_field');
