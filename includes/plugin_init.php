@@ -1,7 +1,7 @@
 <?php
 require_once plugin_dir_path(__FILE__) . '../functions.php';
 
-$main_domain = 'nationalarchives.gov.uk';
+$main_domain = '.nationalarchives.gov.uk';
 $cookie_consent_plugin_options =  new Ds_Cookie_Consent_Fields_Admin_Options();
 $manage_acceptable_group_cookie_list = new Manage_Acceptable_Group_Cookie_List(
     array(
