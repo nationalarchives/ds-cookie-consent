@@ -74,4 +74,3 @@ This repository uses a number of technologies, including:
 
 - [Babel](https://babeljs.io)
 - [Webpack](https://webpack.js.org)
-- [Travis CI](https://travis-ci.org/)
