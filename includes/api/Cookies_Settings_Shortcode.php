@@ -8,7 +8,7 @@ function shortcode_settings_page( $atts ) {
     'necessary' => 'show',
     ), $atts );
 
-    $output = '<form method="post" action="/latin/cookies/" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
+    $output = '<form method="post" action="" id="ds-cookie-consent-form" class="tna-form tna-form-engagement">';
     $output .= '<fieldset class="jsOFF">';
     $output .= '<h2>Cookie settings</h2>';
     $output .= '<p>';
