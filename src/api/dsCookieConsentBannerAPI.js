@@ -13,6 +13,10 @@ const dsCookieConsentBannerAPI = (() => {
       cname.forEach((c) => {
         if (name.trim() === c) {
           document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;domain="`;
+
+          /* The below line fixes discovery only deleting cookies on discovery.nationalarchives.gov.uk instead of just .nationalarchives.gov.uk */
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;domain=.nationalarchives.gov.uk`;
+
           /*below line is to delete the google analytics cookies. they are set with the domain*/
           document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;domain=${location.hostname.replace(
             /^www\./i,
