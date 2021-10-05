@@ -57,6 +57,7 @@ const Data = {
     two: "_gid",
     three: "_gat_UA-2827241-1",
     four: "_gat_UA-2827241-22",
+    five: "_ga_2CP7QT8TDG"
   },
   DOM: {
     on: ".jsON",
