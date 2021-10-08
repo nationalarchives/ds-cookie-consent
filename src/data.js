@@ -33,7 +33,7 @@ const Data = {
   cookies: {
     cookieOne: "dontShowCookieNotice",
     cookieTwo: "cookies_policy",
-    gaCookies: ["_ga", "_gid", "_gat_UA-2827241-22", "_gat_UA-2827241-1"],
+    gaCookies: ["_ga", "_gid", "_gat_UA-2827241-22", "_gat_UA-2827241-1", "_ga_2CP7QT8TDG"],
     settings: ["dontAutoStartResultsTour"]
   },
   formWrapper: {
