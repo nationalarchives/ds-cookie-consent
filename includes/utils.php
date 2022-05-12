@@ -12,7 +12,7 @@ function decode_cookie($cookie_name) {
 
 // Success message on the Cookie Settings Page
 function cookie_success_message() {
-    return '<div class="emphasis-block success-message" role="alert"><p class="h3">Thank you</p><p>Your cookies settings have been saved.</p></div>';
+    return '<div class="emphasis-block success-message" role="alert"><p class="h3">Thank you</p><p>Your cookie settings have been saved.</p></div>';
 }
 
 // Create the HTML Cookie Banner
