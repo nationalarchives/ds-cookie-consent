@@ -13,6 +13,12 @@
   background-color: #fff;
   color: #26262a;
 }
+#ds-cookie-consent-form .form-group {
+  margin-bottom: 10px;
+}
+#ds-cookie-consent-form .reduced-margin {
+  margin-bottom: 1rem;
+}
 
 #ds-cookie-consent-banner {
   z-index: 999;
