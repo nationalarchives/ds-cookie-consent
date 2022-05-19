@@ -43,7 +43,6 @@ context('Cookies Consent Banner', () => {
             .should('have.property', 'value', '%7B%22usage%22%3Atrue%2C%22settings%22%3Atrue%2C%22essential%22%3Atrue%7D')
         
         cy.get('#hide_this_message')
-            .contains('Close this message')
             .should('be.visible')
 
         cy.get('#hide_this_message')
@@ -72,7 +71,6 @@ context('Cookies Consent Banner', () => {
             .should('have.property', 'value', '%7B%22usage%22%3Afalse%2C%22settings%22%3Afalse%2C%22essential%22%3Atrue%7D')
         
         cy.get('#hide_this_message')
-            .contains('Close this message')
             .should('be.visible')
 
         cy.get('#hide_this_message')
