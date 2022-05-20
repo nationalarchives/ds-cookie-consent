@@ -8,7 +8,8 @@
 
 ## Create Cookies Settings page
 
-- Add shortcode [ds-cookie-consent-settings] to the website
+- Add shortcode [ds-cookie-consent-settings] to the website.
+- On localhost, use `[ds-cookie-consent-settings usage='show' settings='show' necessary='show']` if you are having issues viewing the form.
 
 - Content for the cookie sections can be added from TNA Cookie Consent dashboard settings page
 
