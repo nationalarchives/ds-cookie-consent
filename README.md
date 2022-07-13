@@ -13,6 +13,10 @@
 
 - Content for the cookie sections can be added from TNA Cookie Consent dashboard settings page
 
+## Implementation in other applications
+
+- Usage of this code in other applications has some caveats. Since different applications will use different GA (Google Analytics) containers or different domains, the `gtm-script.js` and `domain` that are specified in this repository could be incorrect. Therefore, when implementing this code into another application, the bundled module (i.e. `dist/ds-cookie-consent.js`) should not be copied. Instead, copy the necessary modules into your application, make the appropriate changes (such as changing which `gtm-script.js` is loaded or the `domain` that cookies are being set on), and use a bundling tool such as webpack for building the amended modules.
+
 ## Banner
 
 <img width="1263" alt="Screenshot 2021-04-20 at 10 35 43" src="https://user-images.githubusercontent.com/5245264/115373917-3b91b980-a1c4-11eb-82f7-96acab4a45cb.png">
