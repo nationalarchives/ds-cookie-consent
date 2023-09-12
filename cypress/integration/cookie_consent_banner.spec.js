@@ -4,7 +4,7 @@ context('Cookies Consent Banner', () => {
     beforeEach(() => {
       Cypress.Cookies.debug(true)
   
-      cy.visit('https://nationalarchives.gov.uk/latin')
+      cy.visit('https://www.nationalarchives.gov.uk/latin')
     })
 
     it('Cookie banner DOM dependencies', () => {
