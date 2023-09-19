@@ -1,13 +1,13 @@
 <?php
 /**
 * Plugin Name: TNA Cookie Consent
-* Plugin URI: https://nationalarchives.gov.uk
+* Plugin URI: https://www.nationalarchives.gov.uk
 * Description: The National Archives cookie consent banner and cookie settings
 * Version: 1.7 (2022-05-26)
 * Requires at least: 5.0
 * Requires PHP: 7.2
 * Author: Mihai Diaconita
-* Author URI: https://nationalarchives.gov.uk
+* Author URI: https://www.nationalarchives.gov.uk
 * License: GPL v2 or later
 * License URI: https://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain: ds-cookie-consents
