@@ -3,7 +3,7 @@
 * Plugin Name: TNA Cookie Consent
 * Plugin URI: https://www.nationalarchives.gov.uk
 * Description: The National Archives cookie consent banner and cookie settings
-* Version: 1.7 (2022-05-26)
+* Version: 1.8 (2023-09-19)
 * Requires at least: 5.0
 * Requires PHP: 7.2
 * Author: Mihai Diaconita
