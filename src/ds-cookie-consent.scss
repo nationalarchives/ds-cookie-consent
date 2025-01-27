@@ -24,19 +24,15 @@
 }
 
 #ds-cookie-consent-banner {
-  z-index: 999;
-  padding: 10px 10px 20px 10px;
-  position: fixed;
   display: block;
   bottom: 0px;
   font-size: 14px;
   width: 100%;
   color: #fff;
+  background: #134571;
   .container {
-    background: #134571;
-    padding: 10px 25px 25px 40px;
+    padding: 10px 40px 25px;
     box-sizing: border-box;
-    border-radius: 5px;
     .cookie_head {
       font-family: "Roboto Mono";
       font-style: normal;
