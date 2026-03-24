@@ -1,5 +1,7 @@
 # Cookie banner consent Wordpress plugin
 
+> ⚠️ This has been superseded by the [cookie banner component in TNA Frontend](https://design-system.nationalarchives.gov.uk/components/cookie-banner/)
+
 - [Project findings](https://github.com/nationalarchives/ds-cookie-consent/blob/mihai/wp_plugin/docs/about-the-project.md)
 
 ## Installation
